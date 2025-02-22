@@ -1,0 +1,44 @@
+.basket {
+  position: relative;
+  width: 28px;
+  aspect-ratio: 1;
+  padding-top: 2.3px;
+  color: $color-accent-red;
+  background-color: unset;
+  &--mobile {
+    margin-inline: auto;
+    display: block;
+  }
+  @include hover {
+    color: $color-accent-green;
+  }
+  @include active {
+    transform: scale(0.95);
+  }
+  @media (max-width: 767px) {
+    color: $color-light;
+    background-color: $color-accent-red;
+  }
+  &__counter {
+    &-box {
+      position: absolute;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 10px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: $color-accent-green;
+    }
+    font-size: 8px;
+    text-align: center;
+    font-weight: 700;
+    color: $color-accent-red;
+  }
+  &__image {
+    fill: currentColor;
+    width: 23.33px;
+    aspect-ratio: 1;
+  }
+}

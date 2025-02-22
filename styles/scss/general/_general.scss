@@ -9,6 +9,9 @@ body {
   max-width: calc($container-width + $container-padding-x * 2);
   margin-inline: auto;
   padding-inline: $container-padding-x;
+  @media (max-width: 767px) {
+    padding-inline: $container-padding-x-mobile;
+  }
 }
 
 .visually-hidden {
@@ -22,6 +25,19 @@ body {
   clip-path: inset(100%) !important;
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
+}
+a,
+button,
+input {
+  transition-duration: $transition-duration;
+}
+a {
+  @include hover {
+    color: $color-accent-green;
+  }
+}
+.hidden {
+  display: none;
 }
 // .lock-body {
 //   overflow: hidden;

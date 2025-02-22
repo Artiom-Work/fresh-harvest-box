@@ -1,0 +1,37 @@
+.header {
+  background-color: $color-light;
+  .container {
+    padding-block: 11px 9.1px;
+    @include flexSpaceBetwen;
+    flex-direction: row;
+    @media (max-width: 767px) {
+      padding-block: 16px;
+    }
+  }
+  &__logo {
+    position: relative;
+    left: -7.3%;
+    @media (max-width: 1024px) {
+      left: -9.3%;
+    }
+    @media (max-width: 767px) {
+      display: inline-flex;
+      left: unset;
+    }
+  }
+  &__menu {
+    flex-shrink: 0;
+  }
+
+  .mobile-menu {
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+}
+@media (max-width: 767px) {
+  :is(.header__menu, .header__basket) {
+    display: none;
+  }
+}

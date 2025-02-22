@@ -1,0 +1,68 @@
+#menu-switch[type="checkbox"] {
+  display: none;
+  &:checked ~ .mobile-menu__burger span {
+    background-color: transparent;
+    transition: all 0.8s ease 0s;
+  }
+  &:checked ~ .mobile-menu__burger span::after,
+  &:checked ~ .mobile-menu__burger span::before {
+    transform: rotate(-45deg);
+    width: 19px;
+    top: 0;
+  }
+  &:checked ~ .mobile-menu__burger span::before {
+    transform: rotate(45deg);
+  }
+
+  &:checked ~ .mobile-menu__wrapper {
+    visibility: visible;
+    transform: translateY(0%);
+  }
+}
+.mobile-menu__burger {
+  display: block;
+  width: 20px;
+  height: 14px;
+  color: $color-accent-red;
+  transition-duration: $transition-duration;
+  @include hover {
+    color: $color-accent-green;
+  }
+  & span {
+    display: block;
+    position: relative;
+    top: 6px;
+    left: 0px;
+    border-radius: $border-radius;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+  }
+  & span::after,
+  & span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -6px;
+    width: 10px;
+    height: 2px;
+    border-radius: inherit;
+    background-color: currentColor;
+  }
+  & span::after {
+    top: 6px;
+    width: 14px;
+  }
+}
+.mobile-menu__wrapper {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 100%;
+  height: calc(100vh - 50px);
+  padding: 124px 0 0;
+  background-color: $color-accent-red;
+  visibility: hidden;
+  transition: all 0.4s ease 0s;
+  transform: translateY(-100%);
+}

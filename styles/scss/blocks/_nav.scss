@@ -1,0 +1,24 @@
+.menu {
+  color: $color-accent-red;
+  &__list {
+    @include flexCenter;
+    gap: 20px;
+    &--header {
+      gap: clamp(16px, 1.56vw, 20px);
+    }
+    &--mobile {
+      flex-direction: column;
+    }
+  }
+  &__link {
+    letter-spacing: -0.04em;
+    color: currentColor;
+    @include active {
+      transform: scale(0.95);
+    }
+  }
+  &.mobile-menu__box {
+    color: $color-light;
+    margin: 0 0 16px;
+  }
+}

@@ -14,13 +14,11 @@ $font-family: "DM Sans", sans-serif;
 // container propertues
 $container-width: 1216px;
 $container-padding-x: 32px;
-@media (max-width: 767px) {
-  $container-padding-x: 20px;
-}
+$container-padding-x-mobile: 20px;
+
 // blocks and elemtnts properties variables
 $input-height: 54px;
-$header-height: 90px;
 // paths
 // $image-path: "../../images";
 
-$transition-duration: 0.2s;
+$transition-duration: 0.3s;

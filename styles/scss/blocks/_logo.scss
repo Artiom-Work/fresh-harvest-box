@@ -1,0 +1,20 @@
+.logo {
+  &__link {
+    color: $color-accent-red;
+    @include active {
+      transform: scale(0.95);
+    }
+  }
+  &__image {
+    width: 16px;
+    aspect-ratio: 1;
+    fill: currentColor;
+    margin-right: 8px;
+  }
+  &__text {
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
