@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="styles/css/style.css">
 </head>
 
-<body>
+<body style="display: flex; flex-direction: column; justify-content: space-between; height: 100vh;">
 	<header class="header">
 		<div class="container">
 			<nav class="header__menu menu">
@@ -28,7 +28,7 @@
 
 			<div class="header__logo logo">
 				<a class="logo__link" href="index.html">
-					<svg class="logo__image" viewBox="0 0 16 16">
+					<svg class="logo__image">
 						<use href="./images/icons/sprite-icons.svg#logo"></use>
 					</svg>
 					<span class="logo__text">fresh harvest box</span>
@@ -42,7 +42,7 @@
 					<span class="basket__counter">3</span>
 				</div>
 
-				<svg class="basket__image" viewBox="0 0 16 16">
+				<svg class="basket__image">
 					<use href="./images/icons/sprite-icons.svg#basket"></use>
 				</svg>
 			</button>
@@ -74,7 +74,7 @@
 							<span class="basket__counter">3</span>
 						</div>
 
-						<svg class="basket__image" viewBox="0 0 16 16">
+						<svg class="basket__image">
 							<use href="./images/icons/sprite-icons.svg#basket"></use>
 						</svg>
 					</button>
@@ -84,7 +84,79 @@
 
 	</header>
 
+	<main style="flex-shrink: 0; flex-grow: 1;"></main>
 
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__banner">
+				<img src="./images/footer/footer-image.webp" alt="Girl with bananas" class="footer__image" width="349"
+					height="179">
+				<div class="footer__logo logo">
+					<a class="logo__link" href="index.html">
+						<svg class="logo__image">
+							<use href="./images/icons/sprite-icons.svg#logo"></use>
+						</svg>
+						<span class="logo__text">fresh harvest box</span>
+					</a>
+				</div>
+			</div>
+
+			<nav class="footer__menu menu">
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a class="menu__link" href="/">How It&nbsp;Works</a>
+					</li>
+					<li class="menu__item">
+						<a class="menu__link" href="/">Fruits</a>
+					</li>
+					<li class="menu__item">
+						<a class="menu__link" href="/">Contacts</a>
+					</li>
+				</ul>
+			</nav>
+
+
+			<div class="footer__contacts">
+				<div class="footer__socials socials">
+					<ul class="socials__list">
+						<li>
+							<a class="socials__limk" href="https://ru-ru.facebook.com" target="_blank">
+								<svg class="socials__image">
+									<use href="./images/icons/sprite-icons.svg#facebook"></use>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a class="socials__limk" href="https://www.instagram.com/" target="_blank">
+								<svg class="socials__image">
+									<use href="./images/icons/sprite-icons.svg#instagram"></use>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a class="socials__limk" href="https://www.youtube.com/" target="_blank">
+								<svg class="socials__image">
+									<use href="./images/icons/sprite-icons.svg#youtube"></use>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<address class="footer__address">
+					<a href="tel:+380684439426" class="footer__address-link footer__address-link--tel" target="_blank">
+						+380 (68) 443-94-26
+					</a>
+
+					<a href="https://maps.app.goo.gl/VhT1zFN3uQX7qhdJ6" class="footer__address-link" target="_blank">
+						1678&nbsp;S. Pioneer Road<br>
+						Salt Lake City<br>
+						UT&nbsp;84104
+					</a>
+				</address>
+			</div>
+		</div>
+	</footer>
 
 	<script type="module" src="js/main.js"></script>
 </body>

@@ -1,0 +1,22 @@
+.socials {
+  &__list {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    gap: 20px;
+  }
+  &__limk {
+    fill: $color-light;
+    @include hover {
+      fill: transparentize($color-accent-red, 0.9);
+    }
+  }
+  &__image {
+    width: 44px;
+    height: 44px;
+    @media (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

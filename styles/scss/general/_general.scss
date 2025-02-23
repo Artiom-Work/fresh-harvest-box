@@ -32,6 +32,7 @@ input {
   transition-duration: $transition-duration;
 }
 a {
+  color: $color-accent-red;
   @include hover {
     color: $color-accent-green;
   }
