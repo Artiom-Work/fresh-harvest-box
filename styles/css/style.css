@@ -764,9 +764,10 @@ a {
 }
 @media (max-width: 767px) {
   .promo::before {
-    top: 125px;
-    width: 66px;
-    height: 44px;
+    top: 119px;
+    width: 77px;
+    height: 60px;
+    right: 75.8vw;
   }
 }
 .promo::after {
@@ -788,6 +789,7 @@ a {
   .promo::after {
     top: 56px;
     width: 56px;
+    left: 80vw;
   }
 }
 .promo__body {
