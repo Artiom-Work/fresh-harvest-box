@@ -1,0 +1,39 @@
+.product-preview-card {
+  max-width: 249px;
+  width: 100%;
+  min-height: 387px;
+  border-radius: 500px;
+  background-color: #a4cb66;
+  padding-block: 28px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  text-shadow: $text-shadow;
+
+  &--color {
+    background-color: $color-accent-yelloy;
+  }
+  &__title {
+    font-size: inherit;
+    font-weight: 400;
+  }
+  &__image {
+    margin-block: 0 -18px;
+    &--position {
+      position: relative;
+      top: 28px;
+    }
+  }
+  &__text {
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 164px;
+    line-height: 1.17;
+    &--padding {
+      padding-inline: 10px;
+    }
+  }
+}

@@ -3,6 +3,7 @@ body {
   font-size: 14px;
   background-color: $color-accent-red;
   line-height: 1.28;
+  letter-spacing: -0.04em;
   color: $color-light;
 }
 .container {
@@ -40,10 +41,78 @@ a {
 .hidden {
   display: none;
 }
-// .lock-body {
-//   overflow: hidden;
-// }
-// .hide-layer {
-//   position: relative;
-//   z-index: -1;
-// }
+.badge {
+  @include button(
+    $font-family,
+    18px,
+    1.3,
+    $color-accent-red,
+    $color-light,
+    21px 12px,
+    30px
+  );
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  span:first-child {
+    text-transform: uppercase;
+  }
+  &--transparent {
+    background: transparent;
+    color: $color-light;
+    border: 1px solid currentColor;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: $text-shadow;
+    padding: 12px 32px;
+  }
+}
+.section-title {
+  font-weight: 500;
+  font-size: 40px;
+  text-shadow: $text-shadow;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.04em;
+  &.title-big {
+    font-size: clamp(50px, 5vw, 64px);
+    line-height: 1.04;
+    @media (max-width: 1280px) {
+      line-height: 1.15;
+    }
+    @media (max-width: 767px) {
+      font-size: clamp(28px, 5vw, 50px);
+      line-height: 1.1;
+    }
+  }
+}
+.button {
+  &.round-button {
+    max-width: 114px;
+    aspect-ratio: 1;
+    background-color: $color-light;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    transform: rotate(-14deg);
+    text-shadow: $text-shadow;
+    @media (max-width: 767px) {
+      max-width: 80px;
+      font-size: 20px;
+    }
+  }
+}
+.lock-body {
+  overflow: hidden;
+}
+.hide-layer {
+  position: relative;
+  z-index: -1;
+}

@@ -18,5 +18,11 @@
   &.mobile-menu__box {
     color: $color-light;
     margin: 0 0 16px;
+    .menu__link {
+      color: $color-light;
+      @include hover {
+        color: $color-accent-green;
+      }
+    }
   }
 }

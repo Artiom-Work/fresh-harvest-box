@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="styles/css/style.css">
 </head>
 
-<body style="display: flex; flex-direction: column; justify-content: space-between; height: 100vh;">
+<body>
 	<header class="header">
 		<div class="container">
 			<nav class="header__menu menu">
@@ -84,7 +84,87 @@
 
 	</header>
 
-	<main style="flex-shrink: 0; flex-grow: 1;"></main>
+	<main style="flex-shrink: 0; flex-grow: 1;">
+		<h1 class="visually-hidden">Fresh harvest box</h1>
+		<section class="promo">
+			<h2 class="visually-hidden">Fresh harvest box</h2>
+			<div class="promo__body">
+				<div class="promo__block">
+					<div class="promo__text">
+						<p>
+							Our expertly curated fruit baskets are made with the freshest, highest quality fruits available. Whether
+							you are looking for a&nbsp;healthy snack or&nbsp;a&nbsp;gift for a&nbsp;loved one, Fresh Harvest Box has
+							got you covered.
+						</p>
+					</div>
+
+					<article class="promo__block-card product-preview-card">
+						<h4 class="product-preview-card__title">Fruit</h4>
+
+						<img class="product-preview-card__image product-preview-card__image--position"
+							src="./images/promo/watermelon.webp" alt="Watermelon" width="239" height="172">
+
+						<div class="product-preview-card__text product-preview-card__text--padding">
+							<p>
+								Refreshing and juicy, watermelon is&nbsp;the perfect summer treat and a&nbsp;great source
+								of hydration
+							</p>
+						</div>
+					</article>
+				</div>
+
+				<div class="promo__banner">
+					<h3 class="promo__title section-title title-big">
+						fresh harvest box<br>
+						is&nbsp;your one-stop place for<br>
+						a&nbsp;delicious fruit basket
+					</h3>
+
+					<picture class="promo__banner-image-wrapper">
+						<source srcset="./images/promo/main-picture-mobile.webp" media="(max-width: 767px)">
+						<img class="promo__banner-image" src="./images/promo/main-picture.webp"
+							alt="Girl with an orange instead of an eye" width="452" height="702">
+					</picture>
+
+					<a class="promo__banner-button button round-button" href="/">shop now</a>
+				</div>
+
+				<div class="promo__block promo__block--position">
+					<article
+						class="promo__block-card product-preview-card product-preview-card--color promo__block-card--position">
+						<h4 class="product-preview-card__title">Fruit</h4>
+
+						<img class="product-preview-card__image" src="./images/promo/strawberries.webp" alt="Basket of strawberries"
+							width="239" height="187">
+
+						<div class="product-preview-card__text">
+							<p>
+								Sweet and juicy, strawberries are packed with vitamin&nbsp;C and antioxidants, making them
+								a&nbsp;delicious and healthy snack
+							</p>
+						</div>
+					</article>
+
+					<div class="badges-group">
+						<ul class="badges-group__list">
+							<li class="badges-group__item badge badge--transparent">
+								<span>#organic</span>
+							</li>
+							<li class="badges-group__item badge badge--transparent">
+								<span>#products</span>
+							</li>
+							<li class="badges-group__item badge badge--transparent">
+								<span>#basket</span>
+							</li>
+							<li class="badges-group__item badge badge--transparent">
+								<span>#fruits</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 
 	<footer class="footer">
 		<div class="container">

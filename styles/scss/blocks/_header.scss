@@ -1,3 +1,8 @@
+@import "_nav.scss";
+@import "_logo.scss";
+@import "_basket.scss";
+@import "_mobile-menu.scss";
+
 .header {
   background-color: $color-light;
   .container {
@@ -21,13 +26,6 @@
   }
   &__menu {
     flex-shrink: 0;
-  }
-
-  .mobile-menu {
-    display: none;
-    @media (max-width: 767px) {
-      display: block;
-    }
   }
 }
 @media (max-width: 767px) {
