@@ -739,6 +739,59 @@ a {
     --blockPaddingX: 20px;
   }
 }
+.promo::before, .promo::after {
+  content: "";
+  position: absolute;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  z-index: 2;
+}
+.promo::before {
+  top: 218px;
+  left: 213px;
+  width: 212px;
+  height: 124px;
+  background: url(../../images/promo/bananas.webp) no-repeat center/100%;
+}
+@media (max-width: 1280px) {
+  .promo::before {
+    top: 177px;
+    left: unset;
+    right: 76.8vw;
+    width: 151px;
+    height: 111px;
+  }
+}
+@media (max-width: 767px) {
+  .promo::before {
+    top: 119px;
+    width: 77px;
+    height: 60px;
+    right: 75.8vw;
+  }
+}
+.promo::after {
+  top: 39px;
+  right: 223px;
+  width: 120px;
+  aspect-ratio: 1;
+  background: url(../../images/promo/strawberries-small.webp) no-repeat center/100%;
+}
+@media (max-width: 1280px) {
+  .promo::after {
+    top: 56px;
+    right: unset;
+    left: 81vw;
+    width: 108px;
+  }
+}
+@media (max-width: 767px) {
+  .promo::after {
+    top: 56px;
+    width: 56px;
+    left: 80vw;
+  }
+}
 .promo__body {
   padding-block: 106px 150px;
   min-height: 1097px;
