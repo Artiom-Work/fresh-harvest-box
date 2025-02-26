@@ -71,7 +71,7 @@
       grid-template-areas:
         "banner banner"
         "left-block right-block";
-      padding-block: 105px 137px;
+      padding-block: 105px 139px;
     }
     @media (max-width: 767px) {
       grid-template: repeat(3, auto) / 1fr;
@@ -137,9 +137,8 @@
     @media (max-width: 1280px) {
       max-width: 100%;
     }
-    @media (max-width: 1280px) {
-      max-width: 550px;
-      margin-inline: auto;
+    @media (max-width: 768px) {
+      padding-inline: 27px;
     }
   }
   &__block-card {

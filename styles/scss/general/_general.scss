@@ -72,10 +72,15 @@ a {
 .section-title {
   font-weight: 500;
   font-size: 40px;
+  line-height: 1.1;
   text-shadow: $text-shadow;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: -0.04em;
+  @media (max-width: 767px) {
+    font-size: clamp(28px, 5.2vw, 40px);
+    line-height: 1;
+  }
   &.title-big {
     font-size: clamp(50px, 5vw, 64px);
     line-height: 1.04;
@@ -89,10 +94,21 @@ a {
   }
 }
 .button {
+  letter-spacing: $letter-spacing;
+  color: $color-light;
+  background-color: $color-accent-green;
+  padding: 15px 35px;
+  border-radius: $border-radius;
+  @include hover {
+    color: $color-accent-green;
+    background-color: $color-light;
+  }
   &.round-button {
+    padding: unset;
     max-width: 114px;
     aspect-ratio: 1;
     background-color: $color-light;
+    color: $color-accent-red;
     text-transform: uppercase;
     text-align: center;
     border-radius: 50%;

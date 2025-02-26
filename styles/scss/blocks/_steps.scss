@@ -1,0 +1,62 @@
+.steps {
+  &__list {
+    @include flexSpaceBetwen;
+    gap: 24px;
+    @media (max-width: 1280px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @media (max-width: 767px) {
+      gap: 20px;
+    }
+  }
+  &__item {
+    max-width: 389px;
+    min-height: 128px;
+    padding: 40px 20px;
+    background-color: $color-light;
+    border-radius: 20px;
+    color: $color-dark;
+    @include flexSpaceBetwen;
+    gap: 14px;
+    &:first-child {
+      padding: 37px 20px;
+    }
+    @media (max-width: 767px) {
+      padding: 20px;
+      min-height: 112px;
+      &:first-child {
+        padding: 20px;
+      }
+    }
+  }
+  &__button {
+    flex-shrink: 0;
+    display: inline-block;
+    max-width: 136px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.33333;
+    text-align: center;
+    padding: 12px 0;
+    &--color-red {
+      background-color: $color-accent-red;
+      @include hover {
+        background-color: $color-accent-green;
+      }
+    }
+    @include hover {
+      color: $color-light;
+      &:not(.steps__button--color-red) {
+        background-color: $color-accent-red;
+      }
+    }
+    &--color-yellow {
+      background-color: $color-accent-yellow;
+      pointer-events: none;
+    }
+  }
+  &__text {
+    text-shadow: $text-shadow;
+  }
+}
