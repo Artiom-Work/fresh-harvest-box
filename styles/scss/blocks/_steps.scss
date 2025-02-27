@@ -51,6 +51,10 @@
         background-color: $color-accent-red;
       }
     }
+    @include active {
+      color: $color-dark;
+      transform: scale(0.98);
+    }
     &--color-yellow {
       background-color: $color-accent-yellow;
       pointer-events: none;
