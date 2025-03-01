@@ -15,3 +15,13 @@
         Performance in desktop = 98%
         Performance in mobile = 100%
         		2% optimization stole js file
+
+4.  Added how-it-works.
+
+        Performance in desktop = 98%
+        Performance in mobile = 100%
+
+5.  Added quick-order.
+
+        Performance in desktop = 98%
+        Performance in mobile = 100%

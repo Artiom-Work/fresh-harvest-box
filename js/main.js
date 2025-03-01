@@ -43,3 +43,39 @@ function bodyUnlock() {
 		setTimeout(visibleLayer, 200);
 	}
 }
+
+// for section products
+const productsBox = document.querySelector('.products__list');
+
+async function loadProducts() {
+	let productsData;
+	try {
+		const response = await fetch('./data/products.json');
+		productsData = await response.json();
+	} catch (error) {
+		console.error('Ошибка:', error);
+	}
+	productsData.forEach(({ imagePath, name, type, price, cardColor }) => {
+		const productCard = `
+					<li class="products__item">
+						<article class="product-card" style="background-color:${cardColor}">
+							<h3 class="product-card__name">${name}</h3>
+							<span class="product-card__type">${type}</span>
+							<div class="product-card__image-wrapper">
+								<img class="product-card__image" src="${imagePath}" alt="${name}" width="295"
+									height="251">
+							</div>
+	
+							<div class="product-card__price button">
+								${price}&nbsp;UAH&nbsp;/ kg
+							</div>
+						</article>
+					</li>
+		`;
+		productsBox.insertAdjacentHTML('beforeend', productCard);
+	});
+}
+loadProducts();
+
+
+

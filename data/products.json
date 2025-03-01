@@ -1,0 +1,65 @@
+[
+  {
+    "imagePath": "./images/products/strawberry.webp",
+    "name": "Strawberry",
+    "type": "Plant",
+    "price": 100,
+		"cardColor" : "#f8766b"
+  },
+  {
+    "imagePath": "./images/products/bananas.webp",
+    "name": "Banana",
+    "type": "Plant",
+    "price": 80,
+		"cardColor" : "#edd251"
+  },
+  {
+    "imagePath": "./images/products/watermelon.webp",
+    "name": "Watermelon",
+    "type": "Plant",
+    "price": 40,
+		"cardColor" : "#9dc262"
+  },
+  {
+    "imagePath": "./images/products/lime.webp",
+    "name": "Lime",
+    "type": "Plant",
+    "price": 60,
+		"cardColor" : "#bfd663"
+  },
+  {
+    "imagePath": "./images/products/apples.webp",
+    "name": "Apple",
+    "type": "Plant",
+    "price": 50,
+		"cardColor" : "#e93f29"
+  },
+  {
+    "imagePath": "./images/products/peach.webp",
+    "name": "Peach",
+    "type": "Plant",
+    "price": 80,
+		"cardColor" : "#db4f4b"
+  },
+	{
+    "imagePath": "./images/products/plum.webp",
+    "name": "Plums",
+    "type": "Plant",
+    "price": 40,
+		"cardColor" : "#9b5366"
+  },
+	{
+    "imagePath": "./images/products/orange.webp",
+    "name": "Orange",
+    "type": "Plant",
+    "price": 60	,
+		"cardColor" : "#f47f4c"
+  },
+	{
+    "imagePath": "./images/products/kiwi.webp",
+    "name": "Kiwi",
+    "type": "Plant",
+    "price": 90,
+		"cardColor" : "#98b37e"
+  }
+]
