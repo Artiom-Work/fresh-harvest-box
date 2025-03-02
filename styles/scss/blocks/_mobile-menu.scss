@@ -9,12 +9,12 @@
   display: none;
   &:checked ~ .mobile-menu__burger span {
     background-color: transparent;
-    transition: all 0.8s ease 0s;
+    transition: all 0.3s ease s;
   }
   &:checked ~ .mobile-menu__burger span::after,
   &:checked ~ .mobile-menu__burger span::before {
     transform: rotate(-45deg);
-    width: 19px;
+    width: 18px;
     top: 0;
   }
   &:checked ~ .mobile-menu__burger span::before {

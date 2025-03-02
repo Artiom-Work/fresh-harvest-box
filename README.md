@@ -25,3 +25,8 @@
 
         Performance in desktop = 98%
         Performance in mobile = 100%
+
+6.  Added products.
+
+        Performance in desktop = 98%
+        Performance in mobile = 100%

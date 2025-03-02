@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>FRESH HARVEST BOX</title>
+	<link rel="stylesheet" href="libs/izimodal/iziModal.min.css">
 	<link rel="stylesheet" href="styles/css/style.css">
 </head>
 
@@ -269,9 +270,10 @@
 			<form class="quick-order__form">
 				<label class="visually-hidden" for="quick-order-useremail">Email</label>
 				<input class="quick-order__input" type="email" id="quick-order-useremail" name="user-email"
-					placeholder="Enter email...">
+					placeholder="Enter email..." required>
 
-				<button class="button quick-order__button" type="submit" title="button to send email">Send</button>
+				<button class="button quick-order__button open-popup-thanks" type="submit"
+					title="button to send email">Send</button>
 			</form>
 		</section>
 	</main>
@@ -348,6 +350,27 @@
 		</div>
 	</footer>
 
+	<dialog class="popup-thanks" id="popup-thanks" role="dialog">
+		<img class="popup-thanks__image" src="images/popups/raspberry.webp" alt="Raspberry" width="278" height="239">
+
+		<h2 class="popup-thanks__title section-title">thank you</h2>
+
+		<div class="popup-thanks__text">
+			<p>
+				Thank you for your order! Our team is&nbsp;preparing your box with fresh, delicious fruits and vegetables, and
+				we&rsquo;ll deliver it&nbsp;straight to&nbsp;your doorstep. We&nbsp;appreciate your business and look forward
+				to&nbsp;providing you with the best possible experience!
+			</p>
+		</div>
+
+		<button class="popup-thanks__button close-button close-button--color" data-izimodal-close="">
+			<div class="close-button__element"></div>
+			<div class="close-button__element close-button__element--second"></div>
+		</button>
+	</dialog>
+
+	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
+	<script src="libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="js/main.js"></script>
 </body>
 

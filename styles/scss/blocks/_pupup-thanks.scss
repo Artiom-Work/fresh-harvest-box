@@ -1,0 +1,56 @@
+.popup-thanks {
+  padding-block: 68px 79px;
+  background: #e03f5e;
+  height: auto !important;
+  overflow-y: auto;
+  max-height: 545px;
+  width: auto !important;
+  border-radius: 20px !important;
+  color: $color-light;
+  &.hasShadow::after {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    padding-block: 56px 40px;
+    max-height: 426px;
+  }
+  @media (max-width: 640px) {
+    margin-inline: 20px;
+  }
+  .iziModal-wrap {
+    height: auto !important;
+    overflow-y: auto;
+    position: static;
+  }
+  .iziModal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__image {
+    margin-inline: auto;
+    margin-block: 0 28px;
+    @media (max-width: 767px) {
+      width: 170px;
+      height: 146px;
+      margin-block: 0 33px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    max-width: 391px;
+    margin-inline: 20px;
+    text-shadow: $text-shadow;
+  }
+  .popup-thanks__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 27px;
+    @media (max-width: 767px) {
+      margin: 26px;
+    }
+  }
+}

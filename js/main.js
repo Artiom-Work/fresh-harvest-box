@@ -10,8 +10,10 @@ const footer = document.querySelector('footer');
 menuSwitcher.addEventListener('change', (e) => {
 	if (e.target.checked) {
 		bodyLock();
+		menuSwitcher.labels[0].title = 'close';
 	} else if (!e.target.checked) {
 		bodyUnlock();
+		menuSwitcher.labels[0].title = 'mobile menu';
 	}
 });
 linkToMobileMenu.addEventListener('click', (e) => {
@@ -77,5 +79,24 @@ async function loadProducts() {
 }
 loadProducts();
 
+// iziModal settings
 
+$('#popup-thanks').iziModal({
+	closeButton: false,
+	// overlayColor: 'rgba(174, 19, 50, 0.3)',
+	// overlayColor: '',
+	bodyOverflow: true,
+	background: false
+});
+$('.open-popup-thanks').click(function (e) {
+	e.preventDefault();
+	const emailInput = document.getElementById('quick-order-useremail');
+	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+	if (!emailRegex.test(emailInput.value.trim())) {
+		alert('Please enter a valid email.');
+		return false;
+	}
+
+	$('#popup-thanks').iziModal('open');
+});
