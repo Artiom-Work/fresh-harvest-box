@@ -372,6 +372,25 @@
 	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
 	<script src="libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="js/main.js"></script>
+	<script>
+		$('#popup-thanks').iziModal({
+			closeButton: false,
+			bodyOverflow: true,
+			background: false
+		});
+		$('.open-popup-thanks').click(function (e) {
+			e.preventDefault();
+			const emailInput = document.getElementById('quick-order-useremail');
+			const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+			if (!emailRegex.test(emailInput.value.trim())) {
+				alert('Please enter a valid email.');
+				return false;
+			}
+
+			$('#popup-thanks').iziModal('open');
+		});
+	</script>
 </body>
 
 </html>
