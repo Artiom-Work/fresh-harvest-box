@@ -81,20 +81,20 @@ loadProducts();
 
 // iziModal settings
 
-// $('#popup-thanks').iziModal({
-// 	closeButton: false,
-// 	bodyOverflow: true,
-// 	background: false
-// });
-// $('.open-popup-thanks').click(function (e) {
-// 	e.preventDefault();
-// 	const emailInput = document.getElementById('quick-order-useremail');
-// 	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+$('#popup-thanks').iziModal({
+	closeButton: false,
+	bodyOverflow: true,
+	background: false
+});
+$('.open-popup-thanks').click(function (e) {
+	e.preventDefault();
+	const emailInput = document.getElementById('quick-order-useremail');
+	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-// 	if (!emailRegex.test(emailInput.value.trim())) {
-// 		alert('Please enter a valid email.');
-// 		return false;
-// 	}
+	if (!emailRegex.test(emailInput.value.trim())) {
+		alert('Please enter a valid email.');
+		return false;
+	}
 
-// 	$('#popup-thanks').iziModal('open');
-// });
+	$('#popup-thanks').iziModal('open');
+});

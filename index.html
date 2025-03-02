@@ -11,6 +11,25 @@
 </head>
 
 <body>
+	<dialog class="popup-thanks" id="popup-thanks" role="dialog">
+		<img class="popup-thanks__image" src="images/popups/raspberry.webp" alt="Raspberry" width="278" height="239">
+
+		<h2 class="popup-thanks__title section-title">thank you</h2>
+
+		<div class="popup-thanks__text">
+			<p>
+				Thank you for your order! Our team is&nbsp;preparing your box with fresh, delicious fruits and vegetables, and
+				we&rsquo;ll deliver it&nbsp;straight to&nbsp;your doorstep. We&nbsp;appreciate your business and look forward
+				to&nbsp;providing you with the best possible experience!
+			</p>
+		</div>
+
+		<button class="popup-thanks__button close-button close-button--color" data-izimodal-close="">
+			<div class="close-button__element"></div>
+			<div class="close-button__element close-button__element--second"></div>
+		</button>
+	</dialog>
+
 	<header class="header" id="header">
 		<div class="container">
 			<nav class="header__menu menu">
@@ -350,47 +369,12 @@
 		</div>
 	</footer>
 
-	<dialog class="popup-thanks" id="popup-thanks" role="dialog">
-		<img class="popup-thanks__image" src="images/popups/raspberry.webp" alt="Raspberry" width="278" height="239">
 
-		<h2 class="popup-thanks__title section-title">thank you</h2>
-
-		<div class="popup-thanks__text">
-			<p>
-				Thank you for your order! Our team is&nbsp;preparing your box with fresh, delicious fruits and vegetables, and
-				we&rsquo;ll deliver it&nbsp;straight to&nbsp;your doorstep. We&nbsp;appreciate your business and look forward
-				to&nbsp;providing you with the best possible experience!
-			</p>
-		</div>
-
-		<button class="popup-thanks__button close-button close-button--color" data-izimodal-close="">
-			<div class="close-button__element"></div>
-			<div class="close-button__element close-button__element--second"></div>
-		</button>
-	</dialog>
 
 	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
 	<script src="libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="js/main.js"></script>
-	<script>
-		$('#popup-thanks').iziModal({
-			closeButton: false,
-			bodyOverflow: true,
-			background: false
-		});
-		$('.open-popup-thanks').click(function (e) {
-			e.preventDefault();
-			const emailInput = document.getElementById('quick-order-useremail');
-			const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-			if (!emailRegex.test(emailInput.value.trim())) {
-				alert('Please enter a valid email.');
-				return false;
-			}
-
-			$('#popup-thanks').iziModal('open');
-		});
-	</script>
 </body>
 
 </html>
