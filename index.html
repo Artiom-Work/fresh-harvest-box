@@ -17,13 +17,13 @@
 			<nav class="header__menu menu">
 				<ul class="menu__list menu__list--header">
 					<li class="menu__item">
-						<a class="menu__link" href="/">How It&nbsp;Works</a>
+						<a class="menu__link" href="#how-it-works">How It&nbsp;Works</a>
 					</li>
 					<li class="menu__item">
-						<a class="menu__link" href="/">Fruits</a>
+						<a class="menu__link" href="#products">Fruits</a>
 					</li>
 					<li class="menu__item">
-						<a class="menu__link" href="/">Contacts</a>
+						<a class="menu__link" href="#contacts">Contacts</a>
 					</li>
 				</ul>
 			</nav>
@@ -37,7 +37,7 @@
 				</a>
 			</div>
 
-			<button class="header__basket basket" type="button" title="product basket">
+			<button class="header__basket basket open-popup-user-order" type="button" title="product basket">
 				<span class="visually-hidden">Product basket</span>
 
 				<div class="basket__counter-box">
@@ -59,17 +59,17 @@
 					<nav class="menu mobile-menu__box">
 						<ul class="menu__list menu__list--mobile">
 							<li class="menu__item">
-								<a class="menu__link" href="/">How It&nbsp;Works</a>
+								<a class="menu__link" href="#how-it-works">How It&nbsp;Works</a>
 							</li>
 							<li class="menu__item">
-								<a class="menu__link" href="/">Fruits</a>
+								<a class="menu__link" href="#products">Fruits</a>
 							</li>
 							<li class="menu__item">
-								<a class="menu__link" href="/">Contacts</a>
+								<a class="menu__link" href="#contacts">Contacts</a>
 							</li>
 						</ul>
 					</nav>
-					<button class="basket basket--mobile" type="button" title="product basket">
+					<button class="basket basket--mobile open-popup-user-order" type="button" title="product basket">
 						<span class="visually-hidden">Product basket</span>
 
 						<div class="basket__counter-box">
@@ -128,7 +128,7 @@
 							alt="Girl with an orange instead of an eye" width="452" height="702">
 					</picture>
 
-					<a class="promo__banner-button button round-button" href="/">shop now</a>
+					<a class="promo__banner-button button round-button" href="#products">shop now</a>
 				</div>
 
 				<div class="promo__block promo__block--position">
@@ -167,7 +167,7 @@
 			</div>
 		</section>
 
-		<section class="how-it-works container">
+		<section class="how-it-works container" id="how-it-works">
 			<h2 class="how-it-works__title section-title">
 				To&nbsp;order your fruit basket, simply follow these easy steps
 			</h2>
@@ -222,7 +222,7 @@
 		</section>
 
 		<section class="products container">
-			<h2 class="products__title section-title">
+			<h2 class="products__title section-title" id="products">
 				organic fruits
 			</h2>
 			<div class="products__title-description title-description">
@@ -297,19 +297,19 @@
 			<nav class="footer__menu menu">
 				<ul class="menu__list">
 					<li class="menu__item">
-						<a class="menu__link" href="/">How It&nbsp;Works</a>
+						<a class="menu__link" href="#how-it-works">How It&nbsp;Works</a>
 					</li>
 					<li class="menu__item">
-						<a class="menu__link" href="/">Fruits</a>
+						<a class="menu__link" href="#products">Fruits</a>
 					</li>
 					<li class="menu__item">
-						<a class="menu__link" href="/">Contacts</a>
+						<a class="menu__link" href="#contacts">Contacts</a>
 					</li>
 				</ul>
 			</nav>
 
 
-			<div class="footer__contacts">
+			<div class="footer__contacts" id="contacts">
 				<div class="footer__socials socials">
 					<ul class="socials__list">
 						<li>
@@ -386,8 +386,8 @@
 					<h5 class="user-purchase__name">Strawberry Basket</h5>
 					<span class="user-purchase__type">Plant</span>
 				</div>
-				<img class="user-purchase__image user-purchase__image--size" src="images/products/strawberry-basket.webp"
-					alt="Strawberry Basket" width="173" height="196">
+				<!-- <img class="user-purchase__image user-purchase__image--size" src="images/products/strawberry-basket.webp"
+					alt="Strawberry Basket" width="173" height="196"> -->
 			</li>
 
 			<li class="cart-list__item user-purchase">
@@ -399,8 +399,8 @@
 					<h5 class="user-purchase__name">Apple Basket</h5>
 					<span class="user-purchase__type">Plant</span>
 				</div>
-				<img class="user-purchase__image" src="images/products/apple-basket.webp" alt="Apple basket" width="229"
-					height="196">
+				<!-- <img class="user-purchase__image" src="images/products/apple-basket.webp" alt="Apple basket" width="229"
+					height="196"> -->
 			</li>
 
 			<li class="cart-list__item user-purchase">
@@ -412,8 +412,8 @@
 					<h5 class="user-purchase__name">Fruits Basket</h5>
 					<span class="user-purchase__type">Plant</span>
 				</div>
-				<img class="user-purchase__image" src="images/products/fruits-basket.webp" alt="Fruits иasket" width="229"
-					height="196">
+				<!-- <img class="user-purchase__image" src="images/products/fruits-basket.webp" alt="Fruits иasket" width="229"
+					height="196"> -->
 			</li>
 		</ul>
 
@@ -437,8 +437,8 @@
 			<button class="user-order-form__button button" type="submit" title="Submit data button">Submit</button>
 		</form>
 
-		<img class="user-order__image" src="images/popups/user-order-inage.webp" alt="Woman with bananas" width="471"
-			height="458">
+		<!-- <img class="user-order__image" src="images/popups/user-order-inage.webp" alt="Woman with bananas" width="471"
+			height="458"> -->
 
 		<button class="user-order__button-close close-button close-button--color" data-izimodal-close=""
 			title="Close modal window">
@@ -450,7 +450,7 @@
 
 	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
 	<script src="libs/iziModal/iziModal.min.js"></script>
-	<script type="module" src="js/main.min.js"></script>
+	<script type="module" src="js/main.js"></script>
 
 </body>
 
