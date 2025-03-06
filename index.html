@@ -6,29 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>FRESH HARVEST BOX</title>
-	<!-- <link rel="stylesheet" href="libs/iziModal/iziModal.min.css"> -->
+	<link rel="stylesheet" href="libs/iziModal/iziModal.min.css">
 	<link rel="stylesheet" href="styles/css/style.css">
 </head>
 
 <body>
-	<dialog class="popup-thanks" id="popup-thanks" role="dialog">
-		<img class="popup-thanks__image" src="images/popups/raspberry.webp" alt="Raspberry" width="278" height="239">
-
-		<h2 class="popup-thanks__title section-title">thank you</h2>
-
-		<div class="popup-thanks__text">
-			<p>
-				Thank you for your order! Our team is&nbsp;preparing your box with fresh, delicious fruits and vegetables, and
-				we&rsquo;ll deliver it&nbsp;straight to&nbsp;your doorstep. We&nbsp;appreciate your business and look forward
-				to&nbsp;providing you with the best possible experience!
-			</p>
-		</div>
-
-		<button class="popup-thanks__button close-button close-button--color" data-izimodal-close="">
-			<div class="close-button__element"></div>
-			<div class="close-button__element close-button__element--second"></div>
-		</button>
-	</dialog>
 
 	<header class="header" id="header">
 		<div class="container">
@@ -253,7 +235,7 @@
 
 			<ul class="products__list"></ul>
 
-			<button class="products__button button round-button round-button--green" type="button"
+			<button class="products__button button round-button round-button--green open-popup-user-order" type="button"
 				title="Button to order products">
 				<svg class="button__image">
 					<use href="./images/icons/sprite-icons.svg#button-arrow"></use>
@@ -286,7 +268,7 @@
 				</p>
 			</div>
 
-			<form class="quick-order__form">
+			<form class="quick-order__form" id="quick-order-form">
 				<label class="visually-hidden" for="quick-order-useremail">Email</label>
 				<input class="quick-order__input" type="email" id="quick-order-useremail" name="user-email"
 					placeholder="Enter email..." required>
@@ -369,8 +351,105 @@
 		</div>
 	</footer>
 
-	<!-- <script src="libs/jquery/jquery-3.7.1.min.js"></script> -->
-	<!-- <script src="libs/iziModal/iziModal.min.js"></script> -->
+	<dialog class="popup-thanks" id="popup-thanks" role="dialog" aria-label="Company gratitude">
+		<img class="popup-thanks__image" src="images/popups/raspberry.webp" alt="Raspberry" width="278" height="239">
+
+		<h2 class="popup-thanks__title section-title">thank you</h2>
+
+		<div class="popup-thanks__text">
+			<p>
+				Thank you for your order! Our team is&nbsp;preparing your box with fresh, delicious fruits and vegetables, and
+				we&rsquo;ll deliver it&nbsp;straight to&nbsp;your doorstep. We&nbsp;appreciate your business and look forward
+				to&nbsp;providing you with the best possible experience!
+			</p>
+		</div>
+
+		<button class="popup-thanks__button close-button" data-izimodal-close="" title="Close modal window">
+			<div class="close-button__element"></div>
+			<div class="close-button__element close-button__element--second"></div>
+		</button>
+	</dialog>
+
+
+	<dialog class="user-order" id="popup-user-order" aria-label="User's shopping order" open="">
+		<h2 class="user-order__title section-title">Your Order</h2>
+
+		<ul class="user-order__cart-list cart-list">
+			<h3 class="visually-hidden">User's shopping cart</h3>
+
+			<li class="cart-list__item user-purchase">
+				<label class="visually-hidden" for="product1">Product 1</label>
+				<input class="user-purchase__choice" type="checkbox" id="product1" name="products[]" value="product1"
+					form="user-order-form" checked>
+				<h4 class="visually-hidden">User's procuct description</h4>
+				<div class="user-purchase__header">
+					<h5 class="user-purchase__name">Strawberry Basket</h5>
+					<span class="user-purchase__type">Plant</span>
+				</div>
+				<img class="user-purchase__image user-purchase__image--size" src="images/products/strawberry-basket.webp"
+					alt="Strawberry Basket" width="173" height="196">
+			</li>
+
+			<li class="cart-list__item user-purchase">
+				<label class="visually-hidden" for="product2">Product 2</label>
+				<input class="user-purchase__choice" type="checkbox" id="product2" name="products[]" value="product2"
+					form="user-order-form">
+				<h4 class="visually-hidden">User's procuct description</h4>
+				<div class="user-purchase__header">
+					<h5 class="user-purchase__name">Apple Basket</h5>
+					<span class="user-purchase__type">Plant</span>
+				</div>
+				<img class="user-purchase__image" src="images/products/apple-basket.webp" alt="Apple basket" width="229"
+					height="196">
+			</li>
+
+			<li class="cart-list__item user-purchase">
+				<label class="visually-hidden" for="product3">Product 3</label>
+				<input class="user-purchase__choice" type="checkbox" id="product3" name="products[]" value="product3"
+					form="user-order-form">
+				<h4 class="visually-hidden">User's procuct description</h4>
+				<div class="user-purchase__header">
+					<h5 class="user-purchase__name">Fruits Basket</h5>
+					<span class="user-purchase__type">Plant</span>
+				</div>
+				<img class="user-purchase__image" src="images/products/fruits-basket.webp" alt="Fruits иasket" width="229"
+					height="196">
+			</li>
+		</ul>
+
+		<form class="user-order__form user-order-form" id="user-order-form">
+			<label class="visually-hidden" for="user-name">User name</label>
+			<input class="user-order-form__input" type="text" name="name" id="user-name" placeholder="Enter full name..."
+				required>
+
+			<label class="visually-hidden" for="email">User email</label>
+			<input class="user-order-form__input" type="email" name="email" id="email" inputmode="email"
+				placeholder="Enter email..." required>
+
+			<label class="visually-hidden" for="cc-number">User card</label>
+			<input class="user-order-form__input" type="text" name="cc-number" id="cc-number" inputmode="numeric"
+				placeholder="Enter card.." maxlength="19" required>
+
+			<label class="visually-hidden" for="user-message">Comments</label>
+			<textarea class="user-order-form__input user-order-form__input--message" name="user-message" id="user-message"
+				spellcheck="true" placeholder="Enter comments..."></textarea>
+
+			<button class="user-order-form__button button" type="submit" title="Submit data button">Submit</button>
+		</form>
+
+		<img class="user-order__image" src="images/popups/user-order-inage.webp" alt="Woman with bananas" width="471"
+			height="458">
+
+		<button class="user-order__button-close close-button close-button--color" data-izimodal-close=""
+			title="Close modal window">
+			<div class="close-button__element"></div>
+			<div class="close-button__element close-button__element--second"></div>
+		</button>
+	</dialog>
+
+
+	<script src="libs/jquery/jquery-3.7.1.min.js"></script>
+	<script src="libs/iziModal/iziModal.min.js"></script>
 	<script type="module" src="js/main.js"></script>
 
 </body>

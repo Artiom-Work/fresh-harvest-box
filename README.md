@@ -30,3 +30,11 @@
 
         Performance in desktop = 98%
         Performance in mobile = 100%
+
+7.  Added modal window "thank you".
+
+        Performance in desktop = 96%
+        Performance in mobile = 100%
+        				1% steals the iziModal library style file
+        				and
+        				1% steals the iziModal library js file

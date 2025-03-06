@@ -3,7 +3,6 @@
 $color-dark: #000000;
 $color-light: #ffffff;
 $color-accent-red: #ae1332;
-$color-accent-red: rgb(174, 19, 50);
 $color-accent-green: #9dc262;
 $color-accent-yellow: #f5ce13;
 
@@ -12,6 +11,7 @@ $letter-spacing: -0.04em;
 // border
 $border: 1px solid $color-light;
 $border-radius: 30px;
+$border-radius-small: 20px;
 // fonts
 $font-family: "DM Sans", sans-serif;
 // container propertues

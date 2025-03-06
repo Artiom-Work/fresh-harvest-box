@@ -2,7 +2,7 @@
   letter-spacing: $letter-spacing;
   line-height: 1.3;
   padding: 64px 24px 24px;
-  border-radius: 20px;
+  border-radius: $border-radius-small;
   min-height: 465px;
   display: flex;
   flex-direction: column;

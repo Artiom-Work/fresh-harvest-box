@@ -103,6 +103,9 @@ input {
       width: 18px;
     }
   }
+  @media (max-width: 767px) {
+    padding: 12px 24px;
+  }
   @include hover {
     color: $color-accent-green;
     background-color: $color-light;

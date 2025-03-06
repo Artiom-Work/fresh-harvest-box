@@ -5,7 +5,7 @@
   overflow-y: auto;
   max-height: 545px;
   width: auto !important;
-  border-radius: 20px !important;
+  border-radius: $border-radius-small !important;
   color: $color-light;
   &.hasShadow::after {
     display: none;

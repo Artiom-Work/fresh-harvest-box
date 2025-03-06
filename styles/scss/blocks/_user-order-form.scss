@@ -1,0 +1,32 @@
+.user-order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  &__input {
+    width: 100%;
+    border: 1px solid transparentize($color-dark, 0.7);
+    border-radius: $border-radius;
+    padding-inline: 24px;
+    margin-bottom: 14px;
+    &--message {
+      border-radius: $border-radius-small;
+      margin-bottom: 20px;
+      min-height: 145px;
+      padding-block: 15px;
+      resize: none;
+      &::spelling-error {
+        text-decoration: solid $color-accent-red underline;
+      }
+      @media (max-width: 767px) {
+        min-height: 132px;
+      }
+    }
+    @media (max-width: 767px) {
+      height: 46px;
+    }
+    &::placeholder {
+      color: transparentize($color-dark, 0.5);
+      letter-spacing: $letter-spacing;
+    }
+  }
+}

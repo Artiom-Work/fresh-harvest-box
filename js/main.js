@@ -28,6 +28,8 @@ mobileMenu.addEventListener('click', (e) => {
 });
 
 function bodyLock() {
+	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
+	document.body.style.paddingRight = lockPaddingValue;
 	document.body.classList.add('lock-body');
 	if (main && footer) {
 		main.classList.add('hide-layer');
@@ -35,6 +37,7 @@ function bodyLock() {
 	}
 }
 function bodyUnlock() {
+	document.body.style.paddingRight = '0px';
 	document.body.classList.remove('lock-body');
 	if (main && footer) {
 		function visibleLayer() {
@@ -81,20 +84,92 @@ loadProducts();
 
 // iziModal settings
 
-// $('#popup-thanks').iziModal({
-// 	closeButton: false,
-// 	bodyOverflow: true,
-// 	background: false
-// });
-// $('.open-popup-thanks').click(function (e) {
-// 	e.preventDefault();
-// 	const emailInput = document.getElementById('quick-order-useremail');
-// 	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+// initialization iziModal windows
+$('#popup-thanks').iziModal({
+	bodyOverflow: true,
+	background: false
+});
+$('#popup-user-order').iziModal({
+	background: false,
+	bodyOverflow: true,
+	width: ''
+});
+// For user card form
+const cardNumberField = document.getElementById('cc-number');
+// added mask of user card imput
+cardNumberField.addEventListener('input', function () {
+	const value = this.value.replace(/\D/g, '');
+	const formattedValue = formatCardNumber(value);
+	this.value = formattedValue;
+});
 
-// 	if (!emailRegex.test(emailInput.value.trim())) {
-// 		alert('Please enter a valid email.');
-// 		return false;
-// 	}
+function formatCardNumber(value) {
+	const parts = [];
+	for (let i = 0; i < value.length; i += 4) {
+		parts.push(value.slice(i, i + 4));
+	}
+	return parts.join(' ').trim();
+}
+// opening modal windows
+$('.open-popup-thanks').click(function (e) {
+	e.preventDefault();
+	const emailInput = document.getElementById('quick-order-useremail');
 
-// 	$('#popup-thanks').iziModal('open');
-// });
+	if (!emailInput.validity.valid) {
+		emailInput.reportValidity();
+		return;
+	}
+
+	// If there is a server to send data
+	// fetch('/your-server-url', {
+	// 	method: 'POST',
+	// 	body: new FormData(document.getElementById('quick-order-form'))
+	// })
+	// 	.then((response) => response.json())
+	// 	.then((data) => {
+	// 		$('#popup-thanks').iziModal('open');
+	// 	})
+	// 	.catch((error) => console.error('Error:', error));
+	$('#popup-thanks').iziModal('open');
+
+	// Simulate sending data (page refresh)
+
+	$('#popup-thanks').on('closed', function () {
+		location.reload();
+	});
+});
+
+$('.open-popup-user-order').click(function (e) {
+	$('#popup-user-order').iziModal('open');
+});
+
+$('#user-order-form').on('submit', function (e) {
+	e.preventDefault();
+	if (!this.checkValidity()) {
+		this.reportValidity();
+		return;
+	}
+	// If there is a server to send data
+	// fetch('/your-server-url', {
+	// 	method: 'POST',
+	// 	body: new FormData(document.getElementById('user-order-form'))
+	// })
+	// 	.then((response) => response.json())
+	// 	.then((data) => {
+	// 		$('#popup-thanks').iziModal('open');
+	// 	})
+	// 	.catch((error) => console.error('Error:', error));
+	$('#popup-user-order').iziModal('close');
+
+	$('#popup-user-order').on('closed', function () {
+		$('#popup-thanks').iziModal('open');
+	});
+	bodyLock();
+
+	// Simulate sending data (page refresh)
+	$('#popup-thanks').on('closed', function () {
+		location.reload();
+	});
+});
+
+

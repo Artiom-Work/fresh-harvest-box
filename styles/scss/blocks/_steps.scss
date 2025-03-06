@@ -15,7 +15,7 @@
     min-height: 128px;
     padding: 40px 20px;
     background-color: $color-light;
-    border-radius: 20px;
+    border-radius: $border-radius-small;
     color: $color-dark;
     @include flexSpaceBetwen;
     gap: 14px;
