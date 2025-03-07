@@ -38,3 +38,9 @@
         				1% steals the iziModal library style file
         				and
         				1% steals the iziModal library js file
+
+8.  Added modal window "thank you".
+
+        Performance in desktop = 94%
+        Performance in mobile = 100%
+        		2% optimization steals images in modal windows and css code

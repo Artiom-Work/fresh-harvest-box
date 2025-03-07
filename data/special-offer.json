@@ -1,0 +1,26 @@
+[
+	{
+    "image": "./images/products/strawberry-basket.webp",
+    "name": "Strawberry Basket",
+    "type": "Plant",
+    "price": 120,
+		"cardColor" : "#f8766b",
+		"id": 10
+  },
+	{
+    "image": "./images/products/apple-basket.webp",
+    "name": "Apple Basket",
+    "type": "Plant",
+    "price": 120	,
+		"cardColor" : "#edd251",
+		"id": 11
+  },
+	{
+    "image": "./images/products/fruits-basket.webp",
+    "name": "Fruits Basket",
+    "type": "Plant",
+    "price": 120,
+		"cardColor" : "#9dc262",
+		"id": 12
+  }
+]

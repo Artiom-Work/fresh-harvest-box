@@ -60,9 +60,9 @@ async function loadProducts() {
 	} catch (error) {
 		console.error('Ошибка:', error);
 	}
-	productsData.forEach(({ imagePath, name, type, price, cardColor }) => {
+	productsData.forEach(({ imagePath, name, type, price, cardColor, id }) => {
 		const productCard = `
-					<li class="products__item">
+					<li class="products__item" data-product-id="${id}" data-product-color="${cardColor}">
 						<article class="product-card" style="background-color:${cardColor}">
 							<h3 class="product-card__name">${name}</h3>
 							<span class="product-card__type">${type}</span>
@@ -80,6 +80,24 @@ async function loadProducts() {
 		productsBox.insertAdjacentHTML('beforeend', productCard);
 	});
 }
+async function loadSpecialProducts() {
+	let specialProductsData;
+	if (localStorage.getItem('cart') === null || localStorage.getItem('cart') === '[]') {
+		try {
+			const response = await fetch('./data/special-offer.json');
+			specialProductsData = await response.json();
+		} catch (error) {
+			console.error('Error:', error);
+			return;
+		}
+		specialProductsData.forEach(product => {
+			cartItems.push(product);
+		});
+		saveCartToLocalStorage(cartItems);
+	}
+	updateCartDisplay();
+}
+
 loadProducts();
 
 // iziModal settings
@@ -149,6 +167,30 @@ $('#user-order-form').on('submit', function (e) {
 		this.reportValidity();
 		return;
 	}
+	if (cartItems.length === 0) {
+		alert('Cart is empty! Please add items to checkout..');
+		return; // Stop submit if it's empty
+	}
+	const checkboxes = document.querySelectorAll('input[name="products[]"]:checked');
+	const selectedCartItems = [];
+	checkboxes.forEach(checkbox => {
+		const productId = checkbox.value;
+		const selectedItem = cartItems.find(item => String(item.id) === productId);
+		if (selectedItem) {
+			selectedCartItems.push(selectedItem);
+		}
+	});
+	let orderString = "You ordere:\n";
+	selectedCartItems.forEach(item => {
+		orderString += "- " + item.name + "\n";// Add a product name and a newline
+	});
+
+	alert(orderString);
+	localStorage.removeItem('cart');
+	cartItems = [];
+	updateCartDisplay();
+
+
 	// If there is a server to send data
 	// fetch('/your-server-url', {
 	// 	method: 'POST',
@@ -173,3 +215,125 @@ $('#user-order-form').on('submit', function (e) {
 });
 
 
+// formation of a basket of goods
+const cartList = document.querySelector('.cart-list');
+const basketCounter = document.querySelector('.basket__counter');
+const basketCounterMobile = document.querySelector('.basket__counter');
+
+let defaultProductsCount = 0;
+let cartItems = loadCartFromLocalStorage();
+
+let basketDefaultProductsCounter = cartList.querySelectorAll('.user-purchase--default').length;
+
+document.addEventListener('DOMContentLoaded', function () {
+	updateCartDisplay();
+	loadSpecialProducts();
+});
+
+productsBox.addEventListener('click', (e) => {
+	const productItem = e.target.closest('.products__item');
+	if (productItem) {
+		const productData = getProductData(productItem);
+		cartItems.push(productData);
+		saveCartToLocalStorage(cartItems);
+		updateCartDisplay();
+		alert("The product has been added to your cart.");
+	}
+});
+
+function deleteDefaultProducts() {
+	const cartData = localStorage.getItem('cart');
+
+	if (cartData) {
+		const defaultProducts = cartList.querySelectorAll('.user-purchase--default');
+		if (defaultProducts.length > 0) {
+			defaultProducts.forEach(product => {
+				product.remove();
+			});
+		}
+	}
+}
+
+// Product data collection function
+function getProductData(productItem) {
+	const productName = productItem.querySelector('.product-card__name').textContent;
+	const productType = productItem.querySelector('.product-card__type').textContent;
+	const productImage = productItem.querySelector('.product-card__image').src;
+	const productId = productItem.dataset.productId;
+	const productColorCard = productItem.dataset.productColor;
+
+	return {
+		id: productId,
+		name: productName,
+		type: productType,
+		image: productImage,
+		cardColor: productColorCard
+	};
+}
+
+// Function for saving an array of product data in localStorage
+function saveCartToLocalStorage(cartItems) {
+	localStorage.setItem('cart', JSON.stringify(cartItems));
+}
+// Data unloading function from localStorage
+function loadCartFromLocalStorage() {
+	const cartData = localStorage.getItem('cart');
+	try {
+		return cartData ? JSON.parse(cartData) : [];
+	} catch (error) {
+		console.error("Ошибка при разборе JSON из localStorage:", error);
+		return [];
+	}
+}
+
+// Updating the shopping cart
+function updateCartDisplay() {
+	const cartData = localStorage.getItem('cart');
+
+	if (!cartData) {
+		return;
+	}
+	console.log(cartItems);
+	cartList.innerHTML = '';
+	cartItems.forEach(product => {
+		const productCard = `
+			<li class="cart-list__item user-purchase" style="background-color:${product.cardColor}" data-product-id="${product.id}">
+				<label class="visually-hidden" for="product1">Product ${product.name}</label>
+				<input class="user-purchase__choice" type="checkbox" id="product-${product.id}" name="products[]" value="${product.id}"
+					form="user-order-form" checked>
+				<h4 class="visually-hidden">User's procuct description</h4>
+				<div class="user-purchase__header">
+					<h5 class="user-purchase__name">${product.name}</h5>
+					<span class="user-purchase__type">${product.type}</span>
+				</div>
+				<img class="user-purchase__image" src="${product.image}"
+					alt="${product.name}" width="173" height="196">
+			</li>
+		`;
+		cartList.insertAdjacentHTML('beforeend', productCard);
+	});
+	// Update the counter
+	basketCounter.textContent = cartItems.length;
+
+	basketCounterMobile.textContent = cartItems.length;
+}
+
+// function remove products from user cart
+cartList.addEventListener('click', (e) => {
+	const productItem = e.target.closest('.cart-list__item');
+
+	if (productItem && !e.target.classList.contains('user-purchase__choice') && !productItem.classList.contains('user-purchase--default')) {
+		const productID = productItem.dataset.productId;
+		console.log(productID);
+		const confirmation = confirm("Are you sure you want to remove this item from your cart?");
+		if (confirmation) {
+			const indexToRemove = cartItems.findIndex(item => String(item.id) === productID);
+			// Remove the product from the array
+			if (indexToRemove !== -1) {
+				cartItems.splice(indexToRemove, 1);
+				saveCartToLocalStorage(cartItems);
+				updateCartDisplay();
+			}
+		}
+	}
+});

@@ -23,6 +23,11 @@
     padding: 14px 14px 14px 20px;
     background-color: #f8766b;
     color: $color-light;
+    cursor: pointer;
+    // &:nth-child(1) .user-purchase__image {
+    //   width: 173px;
+    //   height: 196px;
+    // }
     @media (max-width: 1280px) {
       max-width: 200px;
       min-height: 250px;
@@ -32,12 +37,6 @@
       min-height: 119px;
       display: flex;
       padding: 14px 14px 8px 20px;
-    }
-    &:nth-child(3) {
-      background-color: #edd251;
-    }
-    &:nth-child(4) {
-      background-color: $color-accent-green;
     }
   }
 }
@@ -54,6 +53,7 @@
     width: 20px;
     height: 20px;
     margin-bottom: 6px;
+    cursor: pointer;
     &:checked::before {
       content: "\2713";
       position: absolute;
@@ -63,8 +63,11 @@
       font-size: 0.7em;
       color: currentColor;
       font-weight: bold;
-      @media (max-width: 767px) {
+      @media (max-width: 1280px) {
         transform: translate(-50%, -50%);
+      }
+      @media (max-width: 767px) {
+        transform: translate(-50%, -65%);
       }
     }
     @media (max-width: 767px) {
