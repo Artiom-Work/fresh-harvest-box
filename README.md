@@ -71,7 +71,7 @@
         		Performance in mobile = 92% (retina HTNL + lazy loading)
         Performance in desktop = 100%
 
-<!-- 12. Added retina for images in footer
+13. Added retina for images in footer
 
-				Performance in mobile = 92% (retina HTNL + lazy loading)
-        Performance in desktop = 100% -->
+        		Performance in mobile = 96% (retina HTNL + lazy loading)
+        Performance in desktop = 100%

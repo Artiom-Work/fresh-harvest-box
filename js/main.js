@@ -230,6 +230,7 @@ function getProductData(productItem) {
 	const productType = productItem.querySelector('.product-card__type').textContent;
 	const productImage = productItem.querySelector('.product-card__image').src;
 	const productId = productItem.dataset.productId;
+	const productImageRetina = productItem.dataset.productRetinaImage;
 	const productColorCard = productItem.dataset.productColor;
 
 	return {
@@ -237,6 +238,7 @@ function getProductData(productItem) {
 		name: productName,
 		type: productType,
 		image: productImage,
+		retinaImage: productImageRetina,
 		cardColor: productColorCard
 	};
 }
@@ -267,7 +269,7 @@ function createCartItemHTML(product) {
         <h5 class="user-purchase__name">${product.name}</h5>
         <span class="user-purchase__type">${product.type}</span>
       </div>
-      <img class="user-purchase__image" src="${product.image}" alt="${product.name}" width="173" height="196">
+      <img class="user-purchase__image" src="${product.image}" srcset="${product.retinaImage} 2x" data-srcset="${product.retinaImage}" alt="${product.name}" width="173" height="196">
     </li>
   `;
 }
