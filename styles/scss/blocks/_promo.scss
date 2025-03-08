@@ -25,7 +25,14 @@
     left: 213px;
     width: 212px;
     height: 124px;
-    background: url(../../images/promo/bananas.webp) no-repeat center / 100%;
+    background-image: url(../../images/promo/bananas.webp);
+    background-image: image-set(
+      "../../images/promo/bananas.webp" 1x,
+      "../../images/promo/bananas@2x.webp" 2x
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
     @media (max-width: 1280px) {
       top: 177px;
       left: unset;
@@ -45,8 +52,14 @@
     right: 223px;
     width: 120px;
     aspect-ratio: 1;
-    background: url(../../images/promo/strawberries-small.webp) no-repeat center /
-      100%;
+    background-image: url(../../images/promo/strawberries-small.webp);
+    background-image: image-set(
+      "../../images/promo/strawberries-small.webp" 1x,
+      "../../images/promo/strawberries-small@2x.webp" 2x
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
     @media (max-width: 1280px) {
       top: 56px;
       right: unset;

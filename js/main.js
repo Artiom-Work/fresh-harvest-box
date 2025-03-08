@@ -20,15 +20,11 @@ const productsBox = document.querySelector('.products__list');
 
 const cardNumberField = document.getElementById('cc-number');
 
-
 const cartList = document.querySelector('.cart-list');
 const basketCounter = document.querySelector('.basket__counter');
 const basketCounterMobile = document.querySelector('.basket__counter--mobile');
 
-
 let cartItems = loadCartFromLocalStorage();
-
-
 // ================================================================================================
 // For mobile menu
 menuSwitcher.addEventListener('change', (e) => {
@@ -204,7 +200,6 @@ $('#user-order-form').on('submit', function (e) {
 	});
 });
 // ================================================================================================
-
 // For user's products basket
 document.addEventListener('DOMContentLoaded', function () {
 	updateCartDisplay();
@@ -261,35 +256,36 @@ function loadCartFromLocalStorage() {
 	}
 }
 
-// The function of updating and filling the user's shopping cart
+// The functions of updating and filling the user's shopping cart
+function createCartItemHTML(product) {
+	return `
+    <li class="cart-list__item user-purchase" style="background-color:${product.cardColor}" data-product-id="${product.id}">
+      <label class="visually-hidden" for="product1">Product ${product.name}</label>
+      <input class="user-purchase__choice" type="checkbox" id="product-${product.id}" name="products[]" value="${product.id}" form="user-order-form" checked>
+      <h4 class="visually-hidden">User's procuct description</h4>
+      <div class="user-purchase__header">
+        <h5 class="user-purchase__name">${product.name}</h5>
+        <span class="user-purchase__type">${product.type}</span>
+      </div>
+      <img class="user-purchase__image" src="${product.image}" alt="${product.name}" width="173" height="196">
+    </li>
+  `;
+}
+
 function updateCartDisplay() {
 	const cartData = localStorage.getItem('cart');
 	if (!cartData) {
 		return;
 	}
+
 	cartList.innerHTML = '';
 	cartItems.forEach(product => {
-		const productCard = `
-			<li class="cart-list__item user-purchase" style="background-color:${product.cardColor}" data-product-id="${product.id}">
-				<label class="visually-hidden" for="product1">Product ${product.name}</label>
-				<input class="user-purchase__choice" type="checkbox" id="product-${product.id}" name="products[]" value="${product.id}"
-					form="user-order-form" checked>
-				<h4 class="visually-hidden">User's procuct description</h4>
-				<div class="user-purchase__header">
-					<h5 class="user-purchase__name">${product.name}</h5>
-					<span class="user-purchase__type">${product.type}</span>
-				</div>
-				<img class="user-purchase__image" src="${product.image}"
-					alt="${product.name}" width="173" height="196">
-			</li>
-		`;
-		cartList.insertAdjacentHTML('beforeend', productCard);
+		cartList.insertAdjacentHTML('beforeend', createCartItemHTML(product));
 	});
-	// Update the counter
+
 	basketCounter.textContent = cartItems.length;
 	basketCounterMobile.textContent = cartItems.length;
 }
-
 // function remove products from user cart
 cartList.addEventListener('click', (e) => {
 	const productItem = e.target.closest('.cart-list__item');
