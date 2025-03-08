@@ -63,12 +63,6 @@
       font-size: 0.7em;
       color: currentColor;
       font-weight: bold;
-      @media (max-width: 1280px) {
-        transform: translate(-50%, -50%);
-      }
-      @media (max-width: 767px) {
-        transform: translate(-50%, -65%);
-      }
     }
     @media (max-width: 767px) {
       order: 1;

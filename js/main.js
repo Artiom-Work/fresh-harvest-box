@@ -1,12 +1,36 @@
 'use strict';
+// initialization iziModal windows
+$('#popup-thanks').iziModal({
+	bodyOverflow: true,
+	background: false
+});
+$('#popup-user-order').iziModal({
+	background: false,
+	bodyOverflow: true,
+	width: ''
+});
+// Global variables
 const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
-//lock body after the mobile menu appeared
+
 const menuSwitcher = document.getElementById('menu-switch');
 const mobileMenu = document.querySelector('.mobile-menu__wrapper');
 const linkToMobileMenu = document.querySelector('.link-to-mobile-menu');
-const main = document.querySelector('main');
-const footer = document.querySelector('footer');
 
+const productsBox = document.querySelector('.products__list');
+
+const cardNumberField = document.getElementById('cc-number');
+
+
+const cartList = document.querySelector('.cart-list');
+const basketCounter = document.querySelector('.basket__counter');
+const basketCounterMobile = document.querySelector('.basket__counter--mobile');
+
+
+let cartItems = loadCartFromLocalStorage();
+
+
+// ================================================================================================
+// For mobile menu
 menuSwitcher.addEventListener('change', (e) => {
 	if (e.target.checked) {
 		bodyLock();
@@ -31,34 +55,22 @@ function bodyLock() {
 	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + "px";
 	document.body.style.paddingRight = lockPaddingValue;
 	document.body.classList.add('lock-body');
-	if (main && footer) {
-		main.classList.add('hide-layer');
-		footer.classList.add('hide-layer');
-	}
 }
 function bodyUnlock() {
 	document.body.style.paddingRight = '0px';
 	document.body.classList.remove('lock-body');
-	if (main && footer) {
-		function visibleLayer() {
-			main.classList.remove('hide-layer');
-			footer.classList.remove('hide-layer');
-		}
-
-		setTimeout(visibleLayer, 200);
-	}
 }
+// ================================================================================================
 
-// for section products
-const productsBox = document.querySelector('.products__list');
-
+// For section products
+// Function for generating a list of products on a page based on a  json data file
 async function loadProducts() {
 	let productsData;
 	try {
 		const response = await fetch('./data/products.json');
 		productsData = await response.json();
 	} catch (error) {
-		console.error('Ошибка:', error);
+		console.error('Error:', error);
 	}
 	productsData.forEach(({ imagePath, name, type, price, cardColor, id }) => {
 		const productCard = `
@@ -80,6 +92,125 @@ async function loadProducts() {
 		productsBox.insertAdjacentHTML('beforeend', productCard);
 	});
 }
+// Function for processing data after clicking on a product
+productsBox.addEventListener('click', (e) => {
+	const productItem = e.target.closest('.products__item');
+	if (productItem) {
+		const productData = getProductData(productItem);
+		cartItems.push(productData);
+		saveCartToLocalStorage(cartItems);
+		updateCartDisplay();
+		alert("The product has been added to your cart.");
+	}
+});
+loadProducts();
+// ================================================================================================
+// Added mask of user card imput in user card form
+cardNumberField.addEventListener('input', function () {
+	const value = this.value.replace(/\D/g, '');
+	const formattedValue = formatCardNumber(value);
+	this.value = formattedValue;
+});
+
+function formatCardNumber(value) {
+	const parts = [];
+	for (let i = 0; i < value.length; i += 4) {
+		parts.push(value.slice(i, i + 4));
+	}
+	return parts.join(' ').trim();
+}
+// ================================================================================================
+
+// For modal windows (iziModal library settings) 
+
+// opening modal windows
+$('#quick-order-form').on('submit', function (e) {
+	e.preventDefault();
+	// Standard validation with standard message output
+	if (!this.checkValidity()) {
+		this.reportValidity();
+		return;
+	}
+
+	// If there is a server to send data
+	// fetch('/your-server-url', {
+	// 	method: 'POST',
+	// 	body: new FormData(document.getElementById('quick-order-form'))
+	// })
+	// 	.then((response) => response.json())
+	// 	.then((data) => {
+	// 		$('#popup-thanks').iziModal('open');
+	// 	})
+	// 	.catch((error) => console.error('Error:', error));
+	$('#popup-thanks').iziModal('open');
+	// Simulate sending data (page refresh)
+	$('#popup-thanks').on('closed', function () {
+		location.reload();
+	});
+});
+// All buttons that have the class "open-popup-user-order"
+$('.open-popup-user-order').click(function (e) {
+	$('#popup-user-order').iziModal('open');
+});
+// Form settings in modal window
+$('#user-order-form').on('submit', function (e) {
+	let orderString = "You ordered:\n";
+
+	e.preventDefault();
+	// Standard validation with standard message output
+	if (!this.checkValidity()) {
+		this.reportValidity();
+		return;
+	}
+	if (cartItems.length === 0) {
+		alert('Cart is empty! Please add items to checkout..');
+		return; // Stop submit if it's empty
+	}
+	// To simulate sending data to the server and displaying the order list to the user
+	const checkboxes = document.querySelectorAll('input[name="products[]"]:checked');
+	const selectedCartItems = [];
+	checkboxes.forEach(checkbox => {
+		const productId = checkbox.value;
+		const selectedItem = cartItems.find(item => String(item.id) === productId);
+		if (selectedItem) {
+			selectedCartItems.push(selectedItem);
+		}
+	});
+	selectedCartItems.forEach(item => {
+		orderString += "- " + item.name + "\n";// Add a product name and a newline
+	});
+	alert(orderString);
+	localStorage.removeItem('cart');
+	cartItems = [];
+	updateCartDisplay();
+	// If there is a server to send data
+	// fetch('/your-server-url', {
+	// 	method: 'POST',
+	// 	body: new FormData(document.getElementById('user-order-form'))
+	// })
+	// 	.then((response) => response.json())
+	// 	.then((data) => {
+	// 		$('#popup-thanks').iziModal('open');
+	// 	})
+	// 	.catch((error) => console.error('Error:', error));
+	$('#popup-user-order').iziModal('close');
+	$('#popup-user-order').on('closed', function () {
+		$('#popup-thanks').iziModal('open');
+	});
+	bodyLock();
+	// Simulate sending data (page refresh)
+	$('#popup-thanks').on('closed', function () {
+		location.reload();
+	});
+});
+// ================================================================================================
+
+// For user's products basket
+document.addEventListener('DOMContentLoaded', function () {
+	updateCartDisplay();
+	loadSpecialProducts();
+});
+// Function for generating default products of the user's shopping cart based on an additional  json data file 
 async function loadSpecialProducts() {
 	let specialProductsData;
 	if (localStorage.getItem('cart') === null || localStorage.getItem('cart') === '[]') {
@@ -98,163 +229,7 @@ async function loadSpecialProducts() {
 	updateCartDisplay();
 }
 
-loadProducts();
-
-// iziModal settings
-
-// initialization iziModal windows
-$('#popup-thanks').iziModal({
-	bodyOverflow: true,
-	background: false
-});
-$('#popup-user-order').iziModal({
-	background: false,
-	bodyOverflow: true,
-	width: ''
-});
-// For user card form
-const cardNumberField = document.getElementById('cc-number');
-// added mask of user card imput
-cardNumberField.addEventListener('input', function () {
-	const value = this.value.replace(/\D/g, '');
-	const formattedValue = formatCardNumber(value);
-	this.value = formattedValue;
-});
-
-function formatCardNumber(value) {
-	const parts = [];
-	for (let i = 0; i < value.length; i += 4) {
-		parts.push(value.slice(i, i + 4));
-	}
-	return parts.join(' ').trim();
-}
-// opening modal windows
-$('.open-popup-thanks').click(function (e) {
-	e.preventDefault();
-	const emailInput = document.getElementById('quick-order-useremail');
-
-	if (!emailInput.validity.valid) {
-		emailInput.reportValidity();
-		return;
-	}
-
-	// If there is a server to send data
-	// fetch('/your-server-url', {
-	// 	method: 'POST',
-	// 	body: new FormData(document.getElementById('quick-order-form'))
-	// })
-	// 	.then((response) => response.json())
-	// 	.then((data) => {
-	// 		$('#popup-thanks').iziModal('open');
-	// 	})
-	// 	.catch((error) => console.error('Error:', error));
-	$('#popup-thanks').iziModal('open');
-
-	// Simulate sending data (page refresh)
-
-	$('#popup-thanks').on('closed', function () {
-		location.reload();
-	});
-});
-
-$('.open-popup-user-order').click(function (e) {
-	$('#popup-user-order').iziModal('open');
-});
-
-$('#user-order-form').on('submit', function (e) {
-	e.preventDefault();
-	if (!this.checkValidity()) {
-		this.reportValidity();
-		return;
-	}
-	if (cartItems.length === 0) {
-		alert('Cart is empty! Please add items to checkout..');
-		return; // Stop submit if it's empty
-	}
-	const checkboxes = document.querySelectorAll('input[name="products[]"]:checked');
-	const selectedCartItems = [];
-	checkboxes.forEach(checkbox => {
-		const productId = checkbox.value;
-		const selectedItem = cartItems.find(item => String(item.id) === productId);
-		if (selectedItem) {
-			selectedCartItems.push(selectedItem);
-		}
-	});
-	let orderString = "You ordere:\n";
-	selectedCartItems.forEach(item => {
-		orderString += "- " + item.name + "\n";// Add a product name and a newline
-	});
-
-	alert(orderString);
-	localStorage.removeItem('cart');
-	cartItems = [];
-	updateCartDisplay();
-
-
-	// If there is a server to send data
-	// fetch('/your-server-url', {
-	// 	method: 'POST',
-	// 	body: new FormData(document.getElementById('user-order-form'))
-	// })
-	// 	.then((response) => response.json())
-	// 	.then((data) => {
-	// 		$('#popup-thanks').iziModal('open');
-	// 	})
-	// 	.catch((error) => console.error('Error:', error));
-	$('#popup-user-order').iziModal('close');
-
-	$('#popup-user-order').on('closed', function () {
-		$('#popup-thanks').iziModal('open');
-	});
-	bodyLock();
-
-	// Simulate sending data (page refresh)
-	$('#popup-thanks').on('closed', function () {
-		location.reload();
-	});
-});
-
-
-// formation of a basket of goods
-const cartList = document.querySelector('.cart-list');
-const basketCounter = document.querySelector('.basket__counter');
-const basketCounterMobile = document.querySelector('.basket__counter');
-
-let defaultProductsCount = 0;
-let cartItems = loadCartFromLocalStorage();
-
-let basketDefaultProductsCounter = cartList.querySelectorAll('.user-purchase--default').length;
-
-document.addEventListener('DOMContentLoaded', function () {
-	updateCartDisplay();
-	loadSpecialProducts();
-});
-
-productsBox.addEventListener('click', (e) => {
-	const productItem = e.target.closest('.products__item');
-	if (productItem) {
-		const productData = getProductData(productItem);
-		cartItems.push(productData);
-		saveCartToLocalStorage(cartItems);
-		updateCartDisplay();
-		alert("The product has been added to your cart.");
-	}
-});
-
-function deleteDefaultProducts() {
-	const cartData = localStorage.getItem('cart');
-
-	if (cartData) {
-		const defaultProducts = cartList.querySelectorAll('.user-purchase--default');
-		if (defaultProducts.length > 0) {
-			defaultProducts.forEach(product => {
-				product.remove();
-			});
-		}
-	}
-}
-
-// Product data collection function
+// Product data collection function ( When a user clicks on a product )
 function getProductData(productItem) {
 	const productName = productItem.querySelector('.product-card__name').textContent;
 	const productType = productItem.querySelector('.product-card__type').textContent;
@@ -275,25 +250,23 @@ function getProductData(productItem) {
 function saveCartToLocalStorage(cartItems) {
 	localStorage.setItem('cart', JSON.stringify(cartItems));
 }
-// Data unloading function from localStorage
+//  Function for data unloading from localStorage
 function loadCartFromLocalStorage() {
 	const cartData = localStorage.getItem('cart');
 	try {
 		return cartData ? JSON.parse(cartData) : [];
 	} catch (error) {
-		console.error("Ошибка при разборе JSON из localStorage:", error);
+		console.error("Error parsing JSON from localStorage:", error);
 		return [];
 	}
 }
 
-// Updating the shopping cart
+// The function of updating and filling the user's shopping cart
 function updateCartDisplay() {
 	const cartData = localStorage.getItem('cart');
-
 	if (!cartData) {
 		return;
 	}
-	console.log(cartItems);
 	cartList.innerHTML = '';
 	cartItems.forEach(product => {
 		const productCard = `
@@ -314,17 +287,16 @@ function updateCartDisplay() {
 	});
 	// Update the counter
 	basketCounter.textContent = cartItems.length;
-
 	basketCounterMobile.textContent = cartItems.length;
 }
 
 // function remove products from user cart
 cartList.addEventListener('click', (e) => {
 	const productItem = e.target.closest('.cart-list__item');
+	const isCheckbox = e.target.matches('input[type="checkbox"]');
 
-	if (productItem && !e.target.classList.contains('user-purchase__choice') && !productItem.classList.contains('user-purchase--default')) {
+	if (productItem && !isCheckbox) {
 		const productID = productItem.dataset.productId;
-		console.log(productID);
 		const confirmation = confirm("Are you sure you want to remove this item from your cart?");
 		if (confirmation) {
 			const indexToRemove = cartItems.findIndex(item => String(item.id) === productID);
