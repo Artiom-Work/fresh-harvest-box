@@ -52,5 +52,8 @@
 
 10. Added retina for images in promo block. Inline HTML srcset for tags img , sourse srcset for tag picture and image-set in css.
 
-        Performance in mobile = 87%
+        Performance in mobile = 87% (retina HTNL + CSS)
+        Performance in desktop = 100%
+
+        		Performance in mobile = 95% (retina CSS only)
         Performance in desktop = 100%
