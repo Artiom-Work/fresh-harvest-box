@@ -58,5 +58,20 @@
         Performance in mobile = 95% (retina CSS only)
         Performance in desktop = 100%
 
-        		Performance in mobile = 95% (retina HTNL + CSS + lazy loading)
+        Performance in mobile = 95% (retina HTNL + CSS + lazy loading)
         Performance in desktop = 100%
+
+11. Added retina for images in section products.
+
+        		Performance in mobile = 94% (retina HTNL + lazy loading)
+        Performance in desktop = 100%
+
+12. Added retina for images in section quick oreder.
+
+        		Performance in mobile = 92% (retina HTNL + lazy loading)
+        Performance in desktop = 100%
+
+<!-- 12. Added retina for images in footer
+
+				Performance in mobile = 92% (retina HTNL + lazy loading)
+        Performance in desktop = 100% -->
