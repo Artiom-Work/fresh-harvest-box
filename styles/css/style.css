@@ -861,8 +861,6 @@ input {
   width: 212px;
   height: 124px;
   background-image: url(../../images/promo/bananas.webp);
-  background-image: -webkit-image-set(url("../../images/promo/bananas.webp") 1x, url("../../images/promo/bananas@2x.webp") 2x);
-  background-image: image-set("../../images/promo/bananas.webp" 1x, "../../images/promo/bananas@2x.webp" 2x);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -890,8 +888,6 @@ input {
   width: 120px;
   aspect-ratio: 1;
   background-image: url(../../images/promo/strawberries-small.webp);
-  background-image: -webkit-image-set(url("../../images/promo/strawberries-small.webp") 1x, url("../../images/promo/strawberries-small@2x.webp") 2x);
-  background-image: image-set("../../images/promo/strawberries-small.webp" 1x, "../../images/promo/strawberries-small@2x.webp" 2x);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
