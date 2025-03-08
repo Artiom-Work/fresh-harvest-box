@@ -1,6 +1,7 @@
 [
   {
     "imagePath": "./images/products/strawberry.webp",
+    "retinaImagePath": "./images/products/strawberry@2x.webp",
     "name": "Strawberry",
     "type": "Plant",
     "price": 100,
@@ -9,6 +10,7 @@
   },
   {
     "imagePath": "./images/products/bananas.webp",
+    "retinaImagePath": "./images/products/bananas@2x.webp",
     "name": "Banana",
     "type": "Plant",
     "price": 80,
@@ -17,6 +19,7 @@
   },
   {
     "imagePath": "./images/products/watermelon.webp",
+    "retinaImagePath": "./images/products/watermelon@2x.webp",
     "name": "Watermelon",
     "type": "Plant",
     "price": 40,
@@ -25,6 +28,7 @@
   },
   {
     "imagePath": "./images/products/lime.webp",
+    "retinaImagePath": "./images/products/lime@2x.webp",
     "name": "Lime",
     "type": "Plant",
     "price": 60,
@@ -33,6 +37,7 @@
   },
   {
     "imagePath": "./images/products/apples.webp",
+    "retinaImagePath": "./images/products/apples@2x.webp",
     "name": "Apple",
     "type": "Plant",
     "price": 50,
@@ -41,6 +46,7 @@
   },
   {
     "imagePath": "./images/products/peach.webp",
+    "retinaImagePath": "./images/products/peach@2x.webp",
     "name": "Peach",
     "type": "Plant",
     "price": 80,
@@ -49,6 +55,7 @@
   },
 	{
     "imagePath": "./images/products/plum.webp",
+    "retinaImagePath": "./images/products/plum@2x.webp",
     "name": "Plums",
     "type": "Plant",
     "price": 40,
@@ -57,6 +64,7 @@
   },
 	{
     "imagePath": "./images/products/orange.webp",
+    "retinaImagePath": "./images/products/orange@2x.webp",
     "name": "Orange",
     "type": "Plant",
     "price": 60	,
@@ -65,6 +73,7 @@
   },
 	{
     "imagePath": "./images/products/kiwi.webp",
+    "retinaImagePath": "./images/products/kiwie@2x.webp",
     "name": "Kiwi",
     "type": "Plant",
     "price": 90,

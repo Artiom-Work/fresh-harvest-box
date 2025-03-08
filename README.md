@@ -55,5 +55,8 @@
         Performance in mobile = 87% (retina HTNL + CSS)
         Performance in desktop = 100%
 
-        		Performance in mobile = 95% (retina CSS only)
+        Performance in mobile = 95% (retina CSS only)
+        Performance in desktop = 100%
+
+        		Performance in mobile = 95% (retina HTNL + CSS + lazy loading)
         Performance in desktop = 100%

@@ -68,15 +68,15 @@ async function loadProducts() {
 	} catch (error) {
 		console.error('Error:', error);
 	}
-	productsData.forEach(({ imagePath, name, type, price, cardColor, id }) => {
+	productsData.forEach(({ imagePath, retinaImagePath, name, type, price, cardColor, id }) => {
 		const productCard = `
 					<li class="products__item" data-product-id="${id}" data-product-color="${cardColor}">
 						<article class="product-card" style="background-color:${cardColor}">
 							<h3 class="product-card__name">${name}</h3>
 							<span class="product-card__type">${type}</span>
 							<div class="product-card__image-wrapper">
-								<img class="product-card__image" src="${imagePath}" alt="${name}" width="295"
-									height="251">
+								<img class="product-card__image" src="${imagePath}" srcset="${retinaImagePath} 2x" alt="${name}" width="295"
+									height="251" loading="lazy">
 							</div>
 	
 							<div class="product-card__price button">
