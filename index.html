@@ -125,7 +125,7 @@
 
 					<picture class="promo__banner-image-wrapper">
 						<source srcset="./images/promo/main-picture.webp 1x , ./images/promo/main-picture@2x.webp 2x">
-						<source srcset="./images/promo/main-picture-mobile.webp 1x , ./images/promo/main-picture-mobile@2x.webp"
+						<source srcset="./images/promo/main-picture-mobile.webp 1x , ./images/promo/main-picture-mobile@2x.webp 2x"
 							media="(max-width: 767px)">
 						<img class="promo__banner-image" src="./images/promo/main-picture.webp"
 							alt="Girl with an orange instead of an eye" width="452" height="702" loading="lazy">
@@ -255,13 +255,16 @@
 
 			<div class="quick-order__image-box">
 				<picture>
-					<source srcset="./images/quick-order/melon-mobile.webp" media="(max-width: 767px)">
+					<source srcset="./images/quick-order/melon-mobile.webp 1x , ./images/quick-order/melon-mobile@2x.webp 2x">
+					<source srcset="./images/quick-order/melon-mobile.webp 1x , ./images/quick-order/melon-mobile@2x.webp 2x"
+						media="(max-width: 767px)">
 
-					<img class="quick-order__image" src="./images/quick-order/melon.webp" alt="melon" width="792" height="502">
+					<img class="quick-order__image" src="./images/quick-order/melon.webp" alt="melon" width="792" height="502"
+						loading="lazy">
 
 				</picture>
 				<img class="quick-order__image quick-order__image--display" src="./images/quick-order/blueberry.webp"
-					alt="blueberry" width="400" height="502">
+					srcset="./images/quick-order/blueberry@2x.webp 2x" alt="blueberry" width="400" height="502" loading="lazy">
 			</div>
 
 			<div class="quick-order__text">
