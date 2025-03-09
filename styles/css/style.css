@@ -401,6 +401,8 @@ input {
           align-items: center;
   -webkit-transform: rotate(-14deg);
           transform: rotate(-14deg);
+}
+.button.round-button span {
   text-shadow: 0 4px 70px rgba(0, 0, 0, 0.1);
 }
 .button.round-button--green {
@@ -1203,6 +1205,7 @@ input {
   line-height: 1.33333;
   text-align: center;
   padding: 12px 0;
+  text-shadow: 0 4px 70px rgba(0, 0, 0, 0.1);
 }
 .steps__button--color-red {
   background-color: #ae1332;
@@ -1412,6 +1415,7 @@ input {
   font-size: 32px;
   line-height: 1.19;
   letter-spacing: -0.04em;
+  text-shadow: 0 4px 70px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 767px) {
   .product-card__name {
@@ -1423,6 +1427,7 @@ input {
 .product-card__type {
   font-size: 18px;
   letter-spacing: -0.02em;
+  text-shadow: 0 4px 70px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 767px) {
   .product-card__type {
@@ -1463,6 +1468,7 @@ input {
   font-weight: 500;
   font-size: 18px;
   color: #ae1332;
+  text-shadow: 0 4px 70px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   pointer-events: none;
 }

@@ -126,7 +126,9 @@ input {
     justify-content: center;
     align-items: center;
     transform: rotate(-14deg);
-    text-shadow: $text-shadow;
+    & span {
+      text-shadow: $text-shadow;
+    }
     &--green {
       font-size: 18px;
       width: 100%;

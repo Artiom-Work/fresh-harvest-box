@@ -39,6 +39,7 @@
     line-height: 1.33333;
     text-align: center;
     padding: 12px 0;
+    text-shadow: $text-shadow;
     &--color-red {
       background-color: $color-accent-red;
       @include hover {
