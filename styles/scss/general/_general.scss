@@ -127,7 +127,7 @@ input {
     align-items: center;
     transform: rotate(-14deg);
     & span {
-      text-shadow: $text-shadow;
+      text-shadow: $text-shadow-accent;
     }
     &--green {
       font-size: 18px;

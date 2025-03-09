@@ -6,7 +6,9 @@ $color-accent-red: #ae1332;
 $color-accent-green: #9dc262;
 $color-accent-yellow: #f5ce13;
 
-$text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+$text-shadow: 0 4px 70px rgba(0, 0, 0, 0.1);
+$text-shadow-accent: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;
 $letter-spacing: -0.04em;
 // border
 $border: 1px solid $color-light;

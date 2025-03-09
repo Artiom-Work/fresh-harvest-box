@@ -39,7 +39,10 @@
     line-height: 1.33333;
     text-align: center;
     padding: 12px 0;
-    text-shadow: $text-shadow;
+    text-shadow: $text-shadow-accent;
+    span {
+      text-shadow: inherit;
+    }
     &--color-red {
       background-color: $color-accent-red;
       @include hover {

@@ -14,7 +14,7 @@
     font-size: 32px;
     line-height: 1.19;
     letter-spacing: $letter-spacing;
-    text-shadow: $text-shadow;
+    text-shadow: $text-shadow-accent;
     @media (max-width: 767px) {
       font-size: 24px;
       line-height: 1.17;
@@ -24,7 +24,7 @@
   &__type {
     font-size: 18px;
     letter-spacing: -0.02em;
-    text-shadow: $text-shadow;
+    text-shadow: $text-shadow-accent;
     @media (max-width: 767px) {
       font-size: 14px;
       line-height: 1.29;
@@ -59,10 +59,9 @@
     position: relative;
     padding: 12px 21px;
     min-width: 136px;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 18px;
     color: $color-accent-red;
-    text-shadow: $text-shadow;
     background-color: $color-light;
     pointer-events: none;
     @media (max-width: 767px) {

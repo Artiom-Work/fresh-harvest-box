@@ -270,7 +270,7 @@ function createCartItemHTML(product) {
         <h5 class="user-purchase__name">${product.name}</h5>
         <span class="user-purchase__type">${product.type}</span>
       </div>
-      <img class="user-purchase__image" src="${product.image}" srcset="${product.retina} 2x" alt="${product.name}" width="196" height="196">
+      <img class="user-purchase__image" src="${product.image}" srcset="${product.retina} 2x" alt="${product.name}" width="229" height="196">
     </li>
   `;
 }
