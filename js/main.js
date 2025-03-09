@@ -261,6 +261,7 @@ function loadCartFromLocalStorage() {
 
 // The functions of updating and filling the user's shopping cart
 function createCartItemHTML(product) {
+	const imageWidth = product.name === "Strawberry Basket" ? 173 : 229;
 	return `
     <li class="cart-list__item user-purchase" style="background-color:${product.cardColor}" data-product-id="${product.id}">
       <label class="visually-hidden" for="product1">Product ${product.name}</label>
@@ -270,7 +271,7 @@ function createCartItemHTML(product) {
         <h5 class="user-purchase__name">${product.name}</h5>
         <span class="user-purchase__type">${product.type}</span>
       </div>
-      <img class="user-purchase__image" src="${product.image}" srcset="${product.retina} 2x" alt="${product.name}" width="229" height="196">
+      <img class="user-purchase__image" src="${product.image}" srcset="${product.retina} 2x" alt="${product.name}" width="${imageWidth}" height="196">
     </li>
   `;
 }
