@@ -1360,25 +1360,26 @@ input {
 .quick-order__input {
   width: 100%;
   background-color: transparent;
+  background-color: #ffffff;
   color: rgba(255, 255, 255, 0.3);
   border: 1px solid currentColor;
   padding: 15px 126px 15px 24px;
   letter-spacing: -0.04em;
 }
 .quick-order__input::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #000000;
 }
 .quick-order__input::-moz-placeholder {
-  color: #ffffff;
+  color: #000000;
 }
 .quick-order__input:-ms-input-placeholder {
-  color: #ffffff;
+  color: #000000;
 }
 .quick-order__input::-ms-input-placeholder {
-  color: #ffffff;
+  color: #000000;
 }
 .quick-order__input::placeholder {
-  color: #ffffff;
+  color: #000000;
 }
 .quick-order__input:focus {
   background-color: #ffffff;
@@ -1390,6 +1391,8 @@ input {
   right: 0;
   top: 0;
   font-weight: 700;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: rgba(157, 194, 98, 0.9);
 }
 .quick-order__button:active {
   -webkit-transform: scale(0.98);

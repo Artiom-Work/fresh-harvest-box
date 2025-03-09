@@ -65,12 +65,13 @@
   &__input {
     width: 100%;
     background-color: transparent;
+    background-color: $color-light;
     color: transparentize($color-light, 0.7);
     border: 1px solid currentColor;
     padding: 15px 126px 15px 24px;
     letter-spacing: $letter-spacing;
     &::placeholder {
-      color: $color-light;
+      color: $color-dark;
     }
     &:focus {
       background-color: $color-light;
@@ -84,6 +85,8 @@
     right: 0;
     top: 0;
     font-weight: 700;
+    text-shadow: $text-shadow-accent;
+    background-color: transparentize($color-accent-green, 0.1);
     @include active {
       transform: scale(0.98);
     }
