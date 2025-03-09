@@ -70,8 +70,7 @@
     padding: 15px 126px 15px 24px;
     letter-spacing: $letter-spacing;
     &::placeholder {
-      color: transparentize($color-light, 0.3);
-      font-weight: 700;
+      color: $color-light;
     }
     &:focus {
       background-color: $color-light;
@@ -84,7 +83,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    text-shadow: $text-shadow-accent;
+    font-weight: 700;
     @include active {
       transform: scale(0.98);
     }

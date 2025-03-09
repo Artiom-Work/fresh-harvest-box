@@ -1366,24 +1366,19 @@ input {
   letter-spacing: -0.04em;
 }
 .quick-order__input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 700;
+  color: #ffffff;
 }
 .quick-order__input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 700;
+  color: #ffffff;
 }
 .quick-order__input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 700;
+  color: #ffffff;
 }
 .quick-order__input::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 700;
+  color: #ffffff;
 }
 .quick-order__input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 700;
+  color: #ffffff;
 }
 .quick-order__input:focus {
   background-color: #ffffff;
@@ -1394,7 +1389,7 @@ input {
   position: absolute;
   right: 0;
   top: 0;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-weight: 700;
 }
 .quick-order__button:active {
   -webkit-transform: scale(0.98);
