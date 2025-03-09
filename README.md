@@ -75,3 +75,9 @@
 
         		Performance in mobile = 96% (retina HTNL + lazy loading)
         Performance in desktop = 100%
+
+14. Added retina for images and lazy loading. all page
+
+        		Performance in mobile = 92%
+            Performance in desktop = 100%
+        				     retina and lazy loading steals 4 percent of productivity
