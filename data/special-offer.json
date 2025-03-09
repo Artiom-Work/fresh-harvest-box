@@ -1,7 +1,7 @@
 [
 	{
     "image": "./images/products/strawberry-basket.webp",
-    "retinaImage": "./images/products/strawberry-basket@2x.webp",
+    "retina": "./images/products/strawberry-basket@2x.webp",
     "name": "Strawberry Basket",
     "type": "Plant",
     "price": 120,
@@ -10,7 +10,7 @@
   },
 	{
     "image": "./images/products/apple-basket.webp",
-    "retinaImage": "./images/products/apple-basket@2x.webp",
+    "retina": "./images/products/apple-basket@2x.webp",
     "name": "Apple Basket",
     "type": "Plant",
     "price": 120	,
@@ -19,7 +19,7 @@
   },
 	{
     "image": "./images/products/fruits-basket.webp",
-    "retinaImage": "./images/products/fruits-basket@2x.webp",
+    "retina": "./images/products/fruits-basket@2x.webp",
     "name": "Fruits Basket",
     "type": "Plant",
     "price": 120,

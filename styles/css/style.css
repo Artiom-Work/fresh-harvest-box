@@ -446,7 +446,7 @@ input {
   position: relative;
   top: 1px;
   left: -2px;
-  width: 18px;
+  width: 23.5px;
   height: 2px;
   border-radius: 30px;
   background-color: currentColor;
@@ -457,6 +457,11 @@ input {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   top: -1px;
+}
+@media (max-width: 767px) {
+  .close-button__element {
+    width: 20px;
+  }
 }
 @media (hover: hover) {
   .close-button:hover {
@@ -1978,6 +1983,10 @@ input {
 .user-purchase__image {
   margin-inline: auto;
 }
+.user-purchase__image[alt="Strawberry Basket"]:nth-of-type(1) {
+  width: 173px;
+  height: 196px;
+}
 @media (max-width: 1280px) {
   .user-purchase__image {
     width: 172px;
@@ -2129,7 +2138,11 @@ input {
 .user-order__title {
   text-align: start;
   margin: 0 auto 40px 0;
-  font-size: 28px;
+}
+@media (max-width: 1280px) {
+  .user-order__title {
+    font-size: 28px;
+  }
 }
 .user-order__cart-list {
   margin-bottom: 40px;
@@ -2164,5 +2177,5 @@ input {
   position: absolute;
   right: 0;
   top: 0;
-  margin: 27px 27px 0 0;
+  margin: 27px 30px 0 0;
 }/*# sourceMappingURL=style.css.map */

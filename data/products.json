@@ -73,7 +73,7 @@
   },
 	{
     "imagePath": "./images/products/kiwi.webp",
-    "retinaImagePath": "./images/products/kiwie@2x.webp",
+    "retinaImagePath": "./images/products/kiwi@2x.webp",
     "name": "Kiwi",
     "type": "Plant",
     "price": 90,

@@ -89,6 +89,10 @@
   }
   &__image {
     margin-inline: auto;
+    &[alt="Strawberry Basket"]:nth-of-type(1) {
+      width: 173px;
+      height: 196px;
+    }
     @media (max-width: 1280px) {
       width: 172px;
       height: 148px;
