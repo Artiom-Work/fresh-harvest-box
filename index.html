@@ -46,9 +46,9 @@
 			<button class="header__basket basket open-popup-user-order" type="button" title="product basket">
 				<span class="visually-hidden">Product basket</span>
 
-				<div class="basket__counter-box">
+				<span class="basket__counter-box">
 					<span class="basket__counter">0</span>
-				</div>
+				</span>
 
 				<svg class="basket__image">
 					<use href="./images/icons/sprite-icons.svg#basket"></use>
@@ -78,9 +78,9 @@
 					<button class="basket basket--mobile open-popup-user-order" type="button" title="product basket">
 						<span class="visually-hidden">Product basket</span>
 
-						<div class="basket__counter-box">
+						<span class="basket__counter-box">
 							<span class="basket__counter basket__counter--mobile">0</span>
-						</div>
+						</span>
 
 						<svg class="basket__image">
 							<use href="./images/icons/sprite-icons.svg#basket"></use>
@@ -131,7 +131,8 @@
 					</h3>
 
 					<picture class="promo__banner-image-wrapper">
-						<source srcset="./images/promo/main-picture.webp 1x , ./images/promo/main-picture@2x.webp 2x">
+						<source srcset="./images/promo/main-picture.webp 1x , ./images/promo/main-picture@2x.webp 2x"
+							type="image/webp">
 						<source srcset="./images/promo/main-picture-mobile.webp 1x , ./images/promo/main-picture-mobile@2x.webp 2x"
 							media="(max-width: 767px)">
 						<img class="promo__banner-image" src="./images/promo/main-picture.webp"
@@ -205,8 +206,7 @@
 					</li>
 
 					<li class="steps__item">
-						<a class="steps__button button link-to-mobile-menu" type="button" href="#header"
-							title="Mobile menu opening button">Second Step</a>
+						<a class="steps__button button link-to-mobile-menu" href="#header">Second Step</a>
 
 						<div class="steps__text how-it-works__text">
 							<p>
@@ -263,7 +263,8 @@
 
 			<div class="quick-order__image-box">
 				<picture>
-					<source srcset="./images/quick-order/melon-mobile.webp 1x , ./images/quick-order/melon-mobile@2x.webp 2x">
+					<source srcset="./images/quick-order/melon-mobile.webp 1x , ./images/quick-order/melon-mobile@2x.webp 2x"
+						type="image/webp">
 					<source srcset="./images/quick-order/melon-mobile.webp 1x , ./images/quick-order/melon-mobile@2x.webp 2x"
 						media="(max-width: 767px)">
 
@@ -366,7 +367,7 @@
 		</div>
 	</footer>
 
-	<dialog class="popup-thanks" id="popup-thanks" role="dialog" aria-label="Company gratitude">
+	<dialog class="popup-thanks" id="popup-thanks" aria-label="Company gratitude">
 		<img class="popup-thanks__image" src="./images/popups/raspberry.webp" srcset="./images/popups/raspberry@2x.webp"
 			alt="Raspberry" width="278" height="239">
 
@@ -380,9 +381,9 @@
 			</p>
 		</div>
 
-		<button class="popup-thanks__button close-button" data-izimodal-close="" title="Close modal window">
-			<div class="close-button__element"></div>
-			<div class="close-button__element close-button__element--second"></div>
+		<button class="popup-thanks__button close-button" data-izimodal-close="" type="button" title="Close modal window">
+			<span class="close-button__element"></span>
+			<span class="close-button__element close-button__element--second"></span>
 		</button>
 	</dialog>
 
@@ -391,7 +392,6 @@
 		<h2 class="user-order__title section-title">Your Order</h2>
 
 		<ul class="user-order__cart-list cart-list">
-			<h3 class="visually-hidden">User's shopping cart</h3>
 		</ul>
 
 		<form class="user-order__form user-order-form" id="user-order-form">
@@ -419,8 +419,8 @@
 
 		<button class="user-order__button-close close-button close-button--color" data-izimodal-close=""
 			title="Close modal window">
-			<div class="close-button__element"></div>
-			<div class="close-button__element close-button__element--second"></div>
+			<span class="close-button__element"></span>
+			<span class="close-button__element close-button__element--second"></span>
 		</button>
 	</dialog>
 

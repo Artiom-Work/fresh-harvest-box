@@ -603,8 +603,6 @@ input {
 }
 #menu-switch[type=checkbox]:checked ~ .mobile-menu__burger span {
   background-color: transparent;
-  -webkit-transition: all 0.3s ease s;
-  transition: all 0.3s ease s;
 }
 #menu-switch[type=checkbox]:checked ~ .mobile-menu__burger span::after, #menu-switch[type=checkbox]:checked ~ .mobile-menu__burger span::before {
   -webkit-transform: rotate(-45deg);
@@ -654,6 +652,8 @@ input {
   height: 2px;
   border-radius: inherit;
   background-color: currentColor;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 .mobile-menu__burger span::after {
   top: 6px;
@@ -1084,8 +1084,6 @@ input {
     height: 484px;
     -o-object-position: 20% 20%;
        object-position: 20% 20%;
-    -o-object-fit: 120;
-       object-fit: 120;
   }
 }
 .promo__banner-image-wrapper {

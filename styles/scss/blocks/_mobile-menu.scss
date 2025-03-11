@@ -9,7 +9,6 @@
   display: none;
   &:checked ~ .mobile-menu__burger span {
     background-color: transparent;
-    transition: all 0.3s ease s;
   }
   &:checked ~ .mobile-menu__burger span::after,
   &:checked ~ .mobile-menu__burger span::before {
@@ -55,6 +54,7 @@
     height: 2px;
     border-radius: inherit;
     background-color: currentColor;
+    transition: all $transition-duration ease 0s;
   }
   & span::after {
     top: 6px;

@@ -266,9 +266,9 @@ function createCartItemHTML(product) {
     <li class="cart-list__item user-purchase" style="background-color:${product.cardColor}" data-product-id="${product.id}">
       <label class="visually-hidden" for="product1">Product ${product.name}</label>
       <input class="user-purchase__choice" type="checkbox" id="product-${product.id}" name="products[]" value="${product.id}" form="user-order-form" checked>
-      <h4 class="visually-hidden">User's procuct description</h4>
+      <h3 class="visually-hidden">User's procuct description</h3>
       <div class="user-purchase__header">
-        <h5 class="user-purchase__name">${product.name}</h5>
+        <h4 class="user-purchase__name">${product.name}</h4>
         <span class="user-purchase__type">${product.type}</span>
       </div>
       <img class="user-purchase__image" src="${product.image}" srcset="${product.retina} 2x" alt="${product.name}" width="${imageWidth}" height="196">
