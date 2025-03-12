@@ -91,7 +91,7 @@ input {
   letter-spacing: $letter-spacing;
   color: $color-light;
   background-color: $color-accent-green;
-  padding: 15px 35px;
+  padding: 15.2px 35px;
   border-radius: $border-radius;
   &__image {
     width: 18px;
@@ -109,6 +109,10 @@ input {
   @include hover {
     color: $color-accent-green;
     background-color: $color-light;
+    outline: 1px solid $color-accent-green;
+  }
+  @include active {
+    transform: scale(0.95);
   }
   &.round-button {
     padding: unset;
@@ -126,6 +130,16 @@ input {
     justify-content: center;
     align-items: center;
     transform: rotate(-14deg);
+    @include hover {
+      background-color: $color-light;
+      color: $color-accent-green;
+      .button__image {
+        fill: $color-accent-green;
+      }
+    }
+    @include active {
+      transform: scale(0.98) rotate(-14deg);
+    }
     & span {
       text-shadow: $text-shadow-accent;
     }
@@ -135,16 +149,6 @@ input {
       line-height: 1.3;
       background-color: $color-accent-green;
       color: $color-light;
-      @include hover {
-        background-color: $color-light;
-        color: $color-accent-green;
-        .button__image {
-          fill: $color-accent-green;
-        }
-      }
-      @include active {
-        transform: scale(0.98) rotate(-14deg);
-      }
     }
 
     @media (max-width: 767px) {

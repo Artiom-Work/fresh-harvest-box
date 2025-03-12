@@ -150,6 +150,7 @@ $('.open-popup-user-order').click(function (e) {
 });
 // Form settings in modal window
 $('#user-order-form').on('submit', function (e) {
+	const isChecked = Array.from(cartList.querySelectorAll('.user-purchase__choice')).find(item => item.checked === true);
 	let orderString = "You ordered:\n";
 
 	e.preventDefault();
@@ -158,7 +159,7 @@ $('#user-order-form').on('submit', function (e) {
 		this.reportValidity();
 		return;
 	}
-	if (cartItems.length === 0) {
+	if (cartItems.length === 0 || isChecked === undefined) {
 		alert('Cart is empty! Please add items to checkout..');
 		return; // Stop submit if it's empty
 	}
@@ -196,6 +197,7 @@ $('#user-order-form').on('submit', function (e) {
 	bodyLock();
 	// Simulate sending data (page refresh)
 	$('#popup-thanks').on('closed', function () {
+		bodyUnlock();
 		location.reload();
 	});
 });
