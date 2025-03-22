@@ -27,8 +27,8 @@
     height: 124px;
     background-image: url(../../images/promo/bananas.webp);
     background-image: image-set(
-      "../../images/promo/bananas.webp" 1x,
-      "../../images/promo/bananas@2x.webp" 2x
+      "/images/promo/bananas.webp" 1x,
+      "/images/promo/bananas@2x.webp" 2x
     );
     background-repeat: no-repeat;
     background-position: center;
@@ -54,8 +54,8 @@
     aspect-ratio: 1;
     background-image: url(../../images/promo/strawberries-small.webp);
     background-image: image-set(
-      "../../images/promo/strawberries-small.webp" 1x,
-      "../../images/promo/strawberries-small@2x.webp" 2x
+      "/images/promo/strawberries-small.webp" 1x,
+      "/images/promo/strawberries-small@2x.webp" 2x
     );
     background-repeat: no-repeat;
     background-position: center;

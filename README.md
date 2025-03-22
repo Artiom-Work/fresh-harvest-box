@@ -41,8 +41,8 @@ $\color{limegreen}\text{Тренировочная работа}$
 ## $\color{mediumblue}\text{Технологии, инструменты и способы вёрстки }$:
 
 ✅ Библиотека iziModal
-✅ Библиотека jQuary
-✅ SASS
+✅ Библиотека jQuery
+✅ Sass
 ✅ БЭМ
 ✅ Flex
 ✅ Grid
@@ -53,7 +53,7 @@ $\color{limegreen}\text{Тренировочная работа}$
 ✅ Оптимизация
 ✅ Тестирование (PageSpeed Insights)
 ✅ Мобильное меню (CSS + JS)
-✅ Корзина товаров (CSS + JS + jQuary)
+✅ Корзина товаров (CSS + JS + jQuery)
 ✅ Формы и валидация (HTML + JS)
 ✅ Git
 ✅ Figma
